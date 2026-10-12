@@ -1,0 +1,41 @@
+# Python & Environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+
+# Exclude Non-Source Directories (Local Only - Only src/ is tracked)
+.agents/
+.github/
+AGENTS.md
+docs/
+product/
+experiments/
+repos/
+checkpoints/
+data/
+tests/
+scratch/
+UNIVERSAL_AI_AGENT_KIT/
+HelpMe*.docx
+SNA_Mini proposal.docx
+~$*
+
+# Build, Lint & OS
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+graphify-out*/
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db

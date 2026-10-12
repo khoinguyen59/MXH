@@ -1,0 +1,35 @@
+# SNA Topic C.10: Making Graph Machine Learning Models Explainable
+# Python Dependencies Specification (Reproducibility Standard)
+
+# Core Deep Learning & GNN Backbones
+torch>=2.1.0
+torch_geometric>=2.4.0
+networkx>=3.0
+scipy>=1.10.0
+
+# Scientific Computing & Data Processing
+numpy>=1.24.0
+pandas>=2.0.0
+scikit-learn>=1.3.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Natural Language Grounding & Open-Weight LLMs (NLE)
+transformers>=4.38.0
+accelerate>=0.27.0
+sentencepiece>=0.2.0
+
+# Interactive Visualization & Web Application
+streamlit>=1.30.0
+pyvis>=0.3.2
+
+# Document Automation & Inspection
+python-docx>=1.1.0
+pymupdf>=1.24.0
+pywin32>=306; sys_platform == 'win32'
+
+# Testing, Linting & CI/CD
+pytest>=8.0.0
+flake8>=7.0.0
+black>=24.0.0
+isort>=5.13.0
