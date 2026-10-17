@@ -32,14 +32,14 @@ Dự án tuân thủ nghiêm ngặt nguyên tắc **Zero-Mockup** (100% số li�
 
 ### 2.1. Tập dữ liệu tổng hợp BA-Shapes (700 nodes, 3.972 edges, 4 classes)
 
-| Lớp Hình Thái Motif | Baseline Gốc T01 (Nhóm 1) | Clean Baseline (Thiện - Group 09) | Proposed Model (Khôi - Group 10) | Nhận Xét & Phân Tích Kỹ Thuật |
+| Lớp Hình Thái Motif | Baseline Gốc T01 (Nhóm 1) | Clean Baseline (Thiện - Nhóm 2) | Proposed Model (Khôi - Nhóm 2) | Nhận Xét & Phân Tích Kỹ Thuật |
 | :--- | :---: | :---: | :---: | :--- |
-| **0: Đồ thị nền (BA)** | 100.0% (60/60) | 100.0% (60/60) | 94.1% (32/34) | Nhận diện hoàn hảo cấu trúc nền Barabási-Albert |
-| **1: Chân nhà (Đáy)** | 100.0% (32/32) | 93.75% (30/32) | 100.0% (25/25) | Cân bằng phân phối dự đoán giữa các lớp |
-| **2: Tường nhà (Thân)** | 96.88% (31/32) | 81.25% (26/32) | 100.0% (25/25) | Nhận diện chính xác liên kết ngang thân nhà |
-| **3: Mái nhà (Đỉnh nhọn)**| **0.0% (0/16)** | **93.75% (15/16)** | **100.0% (16/16)** | **Phục hồi hoàn toàn từ lỗi sụp đổ lớp Class 3** |
-| **Độ chính xác Test (Acc)** | **87.86%** | **93.57%** | **97.14%** | **Mô hình đề xuất tăng +9.29% so với baseline gốc** |
-| **Macro-F1 Score** | **0.6891** | **0.9260** | **0.9650** | **F1 tăng vọt +0.2759 nhờ cứu được Class 3** |
+| **0: Đồ thị nền (BA)** | 100.0% (60/60) | 100.0% (60/60) | **93.33% (56/60)** | Khôi bị nhầm nhẹ 4 nốt ranh giới nối với motif |
+| **1: Chân nhà (Đáy)** | 100.0% (32/32) | 93.75% (30/32) | **100.0% (32/32)** | Nhận diện tuyệt đối đế ngôi nhà |
+| **2: Tường nhà (Thân)** | 96.88% (31/32) | 81.25% (26/32) | **100.0% (32/32)** | Nhận diện tuyệt đối liên kết ngang thân nhà |
+| **3: Mái nhà (Đỉnh nhọn)**| **0.0% (0/16)** | **93.75% (15/16)** | **100.0% (16/16)** | **Khôi & Thiện phục hồi hoàn toàn lỗi mất Lớp 3** |
+| **Độ chính xác Test (Acc)** | **87.86%** | **93.57%** | **97.14%** | **Mô hình Khôi đạt 136/140 nốt đúng trên test set** |
+| **Macro-F1 Score** | **0.6891** | **0.9260** | **0.9650** | **F1 tăng vọt +0.2759 nhờ khắc phục Lớp 3** |
 | **Receptive Field / Features** | 2 lớp GCN | 2 lớp + Weighted Loss | 3 lớp GCN + **RWPE 4D** | Vươn tới bán kính 3-hop của đỉnh mái nhà |
 
 ### 2.2. Tập dữ liệu mạng trích dẫn Cora (2.708 nodes, 10.556 edges, 7 classes)
