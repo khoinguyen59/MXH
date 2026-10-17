@@ -10,7 +10,7 @@
 > **Trường:** Trường Đại học Công nghệ Thông tin (UIT), ĐHQG-HCM (2026)  
 > **Giảng viên hướng dẫn:** TS. Trần Hùng Nghiệp (`nghiepth@uit.edu.vn`)  
 > **Phân loại đề tài:** Mức độ C (Nghiên cứu chuyên sâu, Độ khó: 4/5)  
-> **Thành viên thực hiện:** Nguyễn Trọng Khôi, Nguyễn Hải Thiện  
+> **Nhóm thực hiện:** Nhóm 02  
 
 ---
 
