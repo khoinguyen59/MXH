@@ -1,0 +1,17 @@
+{
+  "dataset": "Cora (Full Dense Split)",
+  "split_mode": "full_dense_stratified",
+  "train_nodes": 1895,
+  "val_nodes": 406,
+  "test_nodes": 407,
+  "unlabeled_nodes": 0,
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    999
+  ],
+  "mean_test_acc": 0.8643734643734643,
+  "std_test_acc": 0.015570495840545309
+}

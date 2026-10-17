@@ -127,7 +127,9 @@ def main():
     print("\n" + df_results.to_markdown(index=False) + "\n")
 
     # Save CSV Report
-    report_csv = REPORTS_DIR / f"benchmark_{args.dataset}_{args.model}.csv"
+    tables_dir = REPORTS_DIR / "tables"
+    tables_dir.mkdir(parents=True, exist_ok=True)
+    report_csv = tables_dir / f"benchmark_{args.dataset}_{args.model}.csv"
     df_results.to_csv(report_csv, index=False)
     print(f"Saved quantitative report table to: {report_csv}")
 

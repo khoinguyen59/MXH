@@ -118,6 +118,17 @@ class LTDEFExplainer(BaseExplainer):
         sub_x = x[subset_nodes]
         num_sub_nodes = subset_nodes.size(0)
         num_edges = sub_edge_index.size(1)
+        if num_edges == 0:
+            elapsed = time.perf_counter() - start_time
+            return ExplanationResult(
+                target_node=node_idx,
+                predicted_class=pred_class,
+                edge_mask=torch.empty(0, dtype=torch.float32),
+                node_feat_mask=torch.zeros(sub_x.size(1), dtype=torch.float32),
+                subgraph_nodes=subset_nodes,
+                subgraph_edge_index=sub_edge_index,
+                execution_time=elapsed,
+            )
 
         # Channel 1: Topological Eigen-Pruning
         topo_scores = self._compute_topological_scores(sub_edge_index, num_sub_nodes)
@@ -131,13 +142,11 @@ class LTDEFExplainer(BaseExplainer):
         fused_edge_mask = (
             self.alpha_topo * topo_scores + (1.0 - self.alpha_topo) * edge_grad_scores
         )
-        fused_edge_mask = fused_edge_mask / (fused_edge_mask.max() + 1e-8)
-
-        # Select top edges conforming to sparsity target
-        k = max(1, int(num_edges * (1.0 - self.sparsity_target)))
-        topk_indices = torch.topk(fused_edge_mask, min(k, num_edges)).indices
-        selected_edges_bool = torch.zeros(num_edges, dtype=torch.bool)
-        selected_edges_bool[topk_indices] = True
+        max_fused = fused_edge_mask.max()
+        if max_fused > 1e-8:
+            fused_edge_mask = fused_edge_mask / max_fused
+        else:
+            fused_edge_mask = torch.ones_like(fused_edge_mask)
 
         elapsed = time.perf_counter() - start_time
 
@@ -147,6 +156,6 @@ class LTDEFExplainer(BaseExplainer):
             edge_mask=fused_edge_mask,
             node_feat_mask=feat_mask,
             subgraph_nodes=subset_nodes,
-            subgraph_edge_index=sub_edge_index[:, selected_edges_bool],
+            subgraph_edge_index=sub_edge_index,
             execution_time=elapsed,
         )

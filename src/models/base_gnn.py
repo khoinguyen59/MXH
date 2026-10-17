@@ -75,6 +75,7 @@ class BaseGNN(nn.Module, ABC):
         lr: float = 0.01,
         weight_decay: float = 5e-4,
         patience: int = 20,
+        class_weight: torch.Tensor = None,
         device: torch.device = torch.device("cpu"),
     ) -> Dict[str, list]:
         """Train the GNN model with early stopping on validation loss.
@@ -85,6 +86,7 @@ class BaseGNN(nn.Module, ABC):
             lr: Learning rate for Adam optimizer.
             weight_decay: L2 regularization factor.
             patience: Early stopping patience epochs.
+            class_weight: Optional class weights tensor for imbalanced classes.
             device: Hardware execution device.
 
         Returns:
@@ -92,6 +94,8 @@ class BaseGNN(nn.Module, ABC):
         """
         self.to(device)
         data = data.to(device)
+        if class_weight is not None:
+            class_weight = class_weight.to(device)
         optimizer = torch.optim.Adam(self.parameters(), lr=lr, weight_decay=weight_decay)
 
         best_val_loss = float("inf")
@@ -109,7 +113,7 @@ class BaseGNN(nn.Module, ABC):
             self.train()
             optimizer.zero_grad()
             out = self(data.x, data.edge_index)
-            loss = F.nll_loss(out[data.train_mask], data.y[data.train_mask])
+            loss = F.nll_loss(out[data.train_mask], data.y[data.train_mask], weight=class_weight)
             loss.backward()
             optimizer.step()
 

@@ -11,6 +11,7 @@ from src.evaluation.benchmark_evaluator import BenchmarkEvaluator
 from src.evaluation.fidelity import (
     compute_fidelity_at_budget,
     compute_fidelity_curve,
+    compute_fidelity_bg08,
 )
 from src.evaluation.k_star import compute_k_star
 from src.evaluation.metrics import (
@@ -31,6 +32,7 @@ __all__ = [
     "compute_fidelity_minus",
     "compute_fidelity_at_budget",
     "compute_fidelity_curve",
+    "compute_fidelity_bg08",
     "compute_sparsity",
     "compute_motif_roc_auc",
     "compute_hallucination_rate",

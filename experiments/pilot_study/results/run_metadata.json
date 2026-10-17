@@ -1,0 +1,212 @@
+[
+  {
+    "run_id": "ba_shapes_node303_gnnexplainer",
+    "dataset": "BA-Shapes",
+    "node_id": 303,
+    "target_class": 1,
+    "predicted_class": 1,
+    "original_prob": 0.4005908668041229,
+    "checkpoint_id": "gcn_ba_shapes_seed42",
+    "model_architecture": "GCN-2L",
+    "seed_gnn": 42,
+    "explainer_method": "GNNExplainer",
+    "seed_explainer": 42,
+    "config": {
+      "epochs": 50,
+      "lr": 0.02,
+      "num_hops": 2
+    },
+    "runtime_sec": 0.16580039999098517,
+    "num_candidates": 7,
+    "status": "success",
+    "error_message": ""
+  },
+  {
+    "run_id": "ba_shapes_node303_saliency",
+    "dataset": "BA-Shapes",
+    "node_id": 303,
+    "target_class": 1,
+    "predicted_class": 1,
+    "original_prob": 0.4005908668041229,
+    "checkpoint_id": "gcn_ba_shapes_seed42",
+    "model_architecture": "GCN-2L",
+    "seed_gnn": 42,
+    "explainer_method": "Saliency",
+    "seed_explainer": 42,
+    "config": {
+      "num_hops": 2
+    },
+    "runtime_sec": 0.004894399986369535,
+    "num_candidates": 7,
+    "status": "success",
+    "error_message": ""
+  },
+  {
+    "run_id": "ba_shapes_node305_gnnexplainer",
+    "dataset": "BA-Shapes",
+    "node_id": 305,
+    "target_class": 1,
+    "predicted_class": 1,
+    "original_prob": 0.4844612181186676,
+    "checkpoint_id": "gcn_ba_shapes_seed42",
+    "model_architecture": "GCN-2L",
+    "seed_gnn": 42,
+    "explainer_method": "GNNExplainer",
+    "seed_explainer": 42,
+    "config": {
+      "epochs": 50,
+      "lr": 0.02,
+      "num_hops": 2
+    },
+    "runtime_sec": 0.1956394000153523,
+    "num_candidates": 10,
+    "status": "success",
+    "error_message": ""
+  },
+  {
+    "run_id": "ba_shapes_node305_saliency",
+    "dataset": "BA-Shapes",
+    "node_id": 305,
+    "target_class": 1,
+    "predicted_class": 1,
+    "original_prob": 0.4844612181186676,
+    "checkpoint_id": "gcn_ba_shapes_seed42",
+    "model_architecture": "GCN-2L",
+    "seed_gnn": 42,
+    "explainer_method": "Saliency",
+    "seed_explainer": 42,
+    "config": {
+      "num_hops": 2
+    },
+    "runtime_sec": 0.005448299983981997,
+    "num_candidates": 10,
+    "status": "success",
+    "error_message": ""
+  },
+  {
+    "run_id": "ba_shapes_node306_gnnexplainer",
+    "dataset": "BA-Shapes",
+    "node_id": 306,
+    "target_class": 1,
+    "predicted_class": 1,
+    "original_prob": 0.45613816380500793,
+    "checkpoint_id": "gcn_ba_shapes_seed42",
+    "model_architecture": "GCN-2L",
+    "seed_gnn": 42,
+    "explainer_method": "GNNExplainer",
+    "seed_explainer": 42,
+    "config": {
+      "epochs": 50,
+      "lr": 0.02,
+      "num_hops": 2
+    },
+    "runtime_sec": 0.15185180000844412,
+    "num_candidates": 7,
+    "status": "success",
+    "error_message": ""
+  },
+  {
+    "run_id": "ba_shapes_node306_saliency",
+    "dataset": "BA-Shapes",
+    "node_id": 306,
+    "target_class": 1,
+    "predicted_class": 1,
+    "original_prob": 0.45613816380500793,
+    "checkpoint_id": "gcn_ba_shapes_seed42",
+    "model_architecture": "GCN-2L",
+    "seed_gnn": 42,
+    "explainer_method": "Saliency",
+    "seed_explainer": 42,
+    "config": {
+      "num_hops": 2
+    },
+    "runtime_sec": 0.004818999994313344,
+    "num_candidates": 7,
+    "status": "success",
+    "error_message": ""
+  },
+  {
+    "run_id": "ba_shapes_node1_gnnexplainer",
+    "dataset": "BA-Shapes",
+    "node_id": 1,
+    "target_class": 1,
+    "predicted_class": 1,
+    "original_prob": 0.4087817966938019,
+    "checkpoint_id": "gcn_ba_shapes_seed42",
+    "model_architecture": "GCN-2L",
+    "seed_gnn": 42,
+    "explainer_method": "GNNExplainer",
+    "seed_explainer": 42,
+    "config": {
+      "epochs": 50,
+      "lr": 0.02,
+      "num_hops": 2
+    },
+    "runtime_sec": 0.14500540000153705,
+    "num_candidates": 64,
+    "status": "success",
+    "error_message": ""
+  },
+  {
+    "run_id": "ba_shapes_node1_saliency",
+    "dataset": "BA-Shapes",
+    "node_id": 1,
+    "target_class": 1,
+    "predicted_class": 1,
+    "original_prob": 0.4087817966938019,
+    "checkpoint_id": "gcn_ba_shapes_seed42",
+    "model_architecture": "GCN-2L",
+    "seed_gnn": 42,
+    "explainer_method": "Saliency",
+    "seed_explainer": 42,
+    "config": {
+      "num_hops": 2
+    },
+    "runtime_sec": 0.006430800014641136,
+    "num_candidates": 64,
+    "status": "success",
+    "error_message": ""
+  },
+  {
+    "run_id": "ba_shapes_node14_gnnexplainer",
+    "dataset": "BA-Shapes",
+    "node_id": 14,
+    "target_class": 1,
+    "predicted_class": 1,
+    "original_prob": 0.3973783254623413,
+    "checkpoint_id": "gcn_ba_shapes_seed42",
+    "model_architecture": "GCN-2L",
+    "seed_gnn": 42,
+    "explainer_method": "GNNExplainer",
+    "seed_explainer": 42,
+    "config": {
+      "epochs": 50,
+      "lr": 0.02,
+      "num_hops": 2
+    },
+    "runtime_sec": 0.14688070002011955,
+    "num_candidates": 14,
+    "status": "success",
+    "error_message": ""
+  },
+  {
+    "run_id": "ba_shapes_node14_saliency",
+    "dataset": "BA-Shapes",
+    "node_id": 14,
+    "target_class": 1,
+    "predicted_class": 1,
+    "original_prob": 0.3973783254623413,
+    "checkpoint_id": "gcn_ba_shapes_seed42",
+    "model_architecture": "GCN-2L",
+    "seed_gnn": 42,
+    "explainer_method": "Saliency",
+    "seed_explainer": 42,
+    "config": {
+      "num_hops": 2
+    },
+    "runtime_sec": 0.004631400021025911,
+    "num_candidates": 14,
+    "status": "success",
+    "error_message": ""
+  }
+]

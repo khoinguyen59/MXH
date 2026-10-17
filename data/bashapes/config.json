@@ -1,0 +1,47 @@
+{
+  "dataset": "bashapes",
+  "stats": {
+    "name": "bashapes",
+    "nodes": 700,
+    "edge_entries": 3972,
+    "self_loops_removed": 0,
+    "features": 10,
+    "classes": 4,
+    "undirected": true,
+    "train": 420,
+    "val": 140,
+    "test": 140
+  },
+  "split_seed": 0,
+  "gnn_seed": 0,
+  "train_seed": 1000,
+  "model": {
+    "arch": "gcn",
+    "layers": 2,
+    "hidden": 32,
+    "dropout": 0.0,
+    "lr": 0.01,
+    "weight_decay": 0.0,
+    "epochs": 400,
+    "selection": "best validation macro-f1 (with class weights)"
+  },
+  "metrics": {
+    "test_acc": 0.9357142857142857,
+    "test_macro_f1": 0.9259934548854605,
+    "val_acc": 0.9357142857142857,
+    "train_acc": 0.9523809523809523
+  },
+  "versions": {
+    "python": "3.13.16",
+    "torch": "2.14.1+cu130",
+    "torch_geometric": "2.8.0.post1"
+  },
+  "preprocessing": {
+    "self_loops": "đã loại",
+    "edges": "coalesce, sắp xếp, vô hướng đối xứng",
+    "features": "bậc node và căn bậc hai (nhóm tự tạo), 10 chiều; không chuẩn hóa",
+    "split": "ngẫu nhiên phân tầng 60/20/20, seed 0",
+    "bashapes_generator": "ExplainerDataset(BAGraph(300,5), HouseMotif(), num_motifs=80), seed 0"
+  },
+  "explain_rule": "giải thích lớp GCN đã dự đoán (pred) trên đồ thị gốc; model.eval(); không cập nhật trọng số"
+}

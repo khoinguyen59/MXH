@@ -1,0 +1,82 @@
+{
+ "bashapes: split rời nhau và phủ hết": {
+  "pass_": true,
+  "info": "train/val/test=420/140/140"
+ },
+ "bashapes: mọi lớp có mặt ở train": {
+  "pass_": true,
+  "info": ""
+ },
+ "bashapes: không self-loop, không cạnh trùng": {
+  "pass_": true,
+  "info": ""
+ },
+ "bashapes: đồ thị vô hướng (cạnh đối xứng)": {
+  "pass_": true,
+  "info": ""
+ },
+ "bashapes: x hữu hạn": {
+  "pass_": true,
+  "info": "(700, 10)"
+ },
+ "bashapes: số node theo lớp": {
+  "pass_": true,
+  "info": "[300, 160, 160, 80]"
+ },
+ "bashapes: 80 motif × 5 node = 400? (số node nhãn>0)": {
+  "pass_": true,
+  "info": "400"
+ },
+ "bashapes: mọi cạnh ground truth nối 2 node nhãn>0": {
+  "pass_": true,
+  "info": ""
+ },
+ "bashapes: ground truth đối xứng hai chiều": {
+  "pass_": true,
+  "info": ""
+ },
+ "bashapes: 80 thành phần motif, mỗi cái 5 node": {
+  "pass_": true,
+  "info": "80 thành phần, kích thước [5]"
+ },
+ "bashapes: 80 motif × 6 cạnh vô hướng × 2 chiều = 960": {
+  "pass_": true,
+  "info": "960"
+ },
+ "bashapes: có cạnh nối motif với đồ thị nền": {
+  "pass_": true,
+  "info": "160 cạnh hướng"
+ },
+ "bashapes: mỗi motif có nhãn {1,1,2,2,3} (2 đỉnh tường, 2 đáy, 1 mái)": {
+  "pass_": true,
+  "info": "[1, 1, 2, 2, 3]"
+ },
+ "bashapes: node validation ⊂ val_mask, không trùng": {
+  "pass_": true,
+  "info": "100"
+ },
+ "cora: split rời nhau và phủ hết": {
+  "pass_": true,
+  "info": "train/val/test=140/500/1000"
+ },
+ "cora: mọi lớp có mặt ở train": {
+  "pass_": true,
+  "info": ""
+ },
+ "cora: không self-loop, không cạnh trùng": {
+  "pass_": true,
+  "info": ""
+ },
+ "cora: đồ thị vô hướng (cạnh đối xứng)": {
+  "pass_": true,
+  "info": ""
+ },
+ "cora: x hữu hạn": {
+  "pass_": true,
+  "info": "(2708, 1433)"
+ },
+ "cora: node validation ⊂ val_mask, không trùng": {
+  "pass_": true,
+  "info": "100"
+ }
+}

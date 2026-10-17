@@ -1,0 +1,838 @@
+{
+  "BA-Shapes": {
+    "dataset_stats": {
+      "num_nodes": 700,
+      "num_edges": 3958,
+      "num_features": 10,
+      "num_classes": 4,
+      "num_train": 120,
+      "num_val": 76,
+      "num_test": 504
+    },
+    "training_metrics": {
+      "train_time_sec": 0.19,
+      "train_acc": 0.25,
+      "val_acc": 0.3421,
+      "test_acc": 0.496
+    },
+    "xai_metrics": {
+      "gnnexplainer": {
+        "summary": {
+          "avg_fidelity_plus": 0.0075,
+          "avg_fidelity_minus": 0.371,
+          "avg_sparsity": 0.8002,
+          "avg_latency_sec": 0.3966
+        },
+        "node_details": [
+          {
+            "node_idx": 1,
+            "pred_class": 0,
+            "budget_edges": 518,
+            "subgraph_edges": 2592,
+            "fidelity_plus": -0.0082,
+            "fidelity_minus": 0.3635,
+            "sparsity": 0.8002,
+            "latency_sec": 0.367
+          },
+          {
+            "node_idx": 2,
+            "pred_class": 0,
+            "budget_edges": 433,
+            "subgraph_edges": 2168,
+            "fidelity_plus": 0.0214,
+            "fidelity_minus": 0.3828,
+            "sparsity": 0.8003,
+            "latency_sec": 0.405
+          },
+          {
+            "node_idx": 3,
+            "pred_class": 0,
+            "budget_edges": 462,
+            "subgraph_edges": 2310,
+            "fidelity_plus": 0.0192,
+            "fidelity_minus": 0.3879,
+            "sparsity": 0.8,
+            "latency_sec": 0.421
+          },
+          {
+            "node_idx": 4,
+            "pred_class": 0,
+            "budget_edges": 219,
+            "subgraph_edges": 1098,
+            "fidelity_plus": 0.0025,
+            "fidelity_minus": 0.3387,
+            "sparsity": 0.8005,
+            "latency_sec": 0.434
+          },
+          {
+            "node_idx": 5,
+            "pred_class": 0,
+            "budget_edges": 499,
+            "subgraph_edges": 2498,
+            "fidelity_plus": 0.0028,
+            "fidelity_minus": 0.3823,
+            "sparsity": 0.8002,
+            "latency_sec": 0.356
+          }
+        ]
+      },
+      "random_baseline": {
+        "summary": {
+          "avg_fidelity_plus": 0.0012,
+          "avg_fidelity_minus": 0.3141,
+          "avg_sparsity": 0.8002,
+          "avg_latency_sec": 0.0001
+        },
+        "node_details": [
+          {
+            "node_idx": 1,
+            "pred_class": 0,
+            "budget_edges": 518,
+            "subgraph_edges": 2592,
+            "fidelity_plus": -0.0015,
+            "fidelity_minus": 0.321,
+            "sparsity": 0.8002,
+            "latency_sec": 0.0005
+          },
+          {
+            "node_idx": 2,
+            "pred_class": 0,
+            "budget_edges": 433,
+            "subgraph_edges": 2168,
+            "fidelity_plus": 0.0055,
+            "fidelity_minus": 0.3255,
+            "sparsity": 0.8003,
+            "latency_sec": 0.0
+          },
+          {
+            "node_idx": 3,
+            "pred_class": 0,
+            "budget_edges": 462,
+            "subgraph_edges": 2310,
+            "fidelity_plus": -0.0008,
+            "fidelity_minus": 0.3033,
+            "sparsity": 0.8,
+            "latency_sec": 0.0
+          },
+          {
+            "node_idx": 4,
+            "pred_class": 0,
+            "budget_edges": 219,
+            "subgraph_edges": 1098,
+            "fidelity_plus": 0.0032,
+            "fidelity_minus": 0.2952,
+            "sparsity": 0.8005,
+            "latency_sec": 0.0
+          },
+          {
+            "node_idx": 5,
+            "pred_class": 0,
+            "budget_edges": 499,
+            "subgraph_edges": 2498,
+            "fidelity_plus": -0.0002,
+            "fidelity_minus": 0.3254,
+            "sparsity": 0.8002,
+            "latency_sec": 0.0
+          }
+        ]
+      }
+    }
+  },
+  "Cora": {
+    "dataset_stats": {
+      "num_nodes": 2708,
+      "num_edges": 10556,
+      "num_features": 1433,
+      "num_classes": 7,
+      "num_train": 140,
+      "num_val": 500,
+      "num_test": 1000
+    },
+    "training_metrics": {
+      "train_time_sec": 0.418,
+      "train_acc": 1.0,
+      "val_acc": 0.8,
+      "test_acc": 0.781
+    },
+    "xai_metrics": {
+      "gnnexplainer": {
+        "summary": {
+          "avg_fidelity_plus": 0.3205,
+          "avg_fidelity_minus": 0.9919,
+          "avg_sparsity": 0.8007,
+          "avg_latency_sec": 0.987
+        },
+        "node_details": [
+          {
+            "node_idx": 1709,
+            "pred_class": 2,
+            "budget_edges": 173,
+            "subgraph_edges": 868,
+            "fidelity_plus": 0.9578,
+            "fidelity_minus": 0.9999,
+            "sparsity": 0.8007,
+            "latency_sec": 1.0
+          },
+          {
+            "node_idx": 1710,
+            "pred_class": 2,
+            "budget_edges": 148,
+            "subgraph_edges": 742,
+            "fidelity_plus": 0.5985,
+            "fidelity_minus": 0.9971,
+            "sparsity": 0.8005,
+            "latency_sec": 0.952
+          },
+          {
+            "node_idx": 1711,
+            "pred_class": 2,
+            "budget_edges": 136,
+            "subgraph_edges": 684,
+            "fidelity_plus": 0.1249,
+            "fidelity_minus": 1.0,
+            "sparsity": 0.8012,
+            "latency_sec": 0.941
+          },
+          {
+            "node_idx": 1712,
+            "pred_class": 2,
+            "budget_edges": 140,
+            "subgraph_edges": 702,
+            "fidelity_plus": -0.016,
+            "fidelity_minus": 0.9999,
+            "sparsity": 0.8006,
+            "latency_sec": 1.027
+          },
+          {
+            "node_idx": 1713,
+            "pred_class": 0,
+            "budget_edges": 158,
+            "subgraph_edges": 792,
+            "fidelity_plus": -0.0625,
+            "fidelity_minus": 0.9624,
+            "sparsity": 0.8005,
+            "latency_sec": 1.015
+          }
+        ]
+      },
+      "random_baseline": {
+        "summary": {
+          "avg_fidelity_plus": 0.1372,
+          "avg_fidelity_minus": 0.7969,
+          "avg_sparsity": 0.8007,
+          "avg_latency_sec": 0.0001
+        },
+        "node_details": [
+          {
+            "node_idx": 1709,
+            "pred_class": 2,
+            "budget_edges": 173,
+            "subgraph_edges": 868,
+            "fidelity_plus": 0.0268,
+            "fidelity_minus": 0.9999,
+            "sparsity": 0.8007,
+            "latency_sec": 0.0
+          },
+          {
+            "node_idx": 1710,
+            "pred_class": 2,
+            "budget_edges": 148,
+            "subgraph_edges": 742,
+            "fidelity_plus": 0.7199,
+            "fidelity_minus": 0.9884,
+            "sparsity": 0.8005,
+            "latency_sec": 0.0
+          },
+          {
+            "node_idx": 1711,
+            "pred_class": 2,
+            "budget_edges": 136,
+            "subgraph_edges": 684,
+            "fidelity_plus": -0.0008,
+            "fidelity_minus": 0.8742,
+            "sparsity": 0.8012,
+            "latency_sec": 0.0
+          },
+          {
+            "node_idx": 1712,
+            "pred_class": 2,
+            "budget_edges": 140,
+            "subgraph_edges": 702,
+            "fidelity_plus": -0.0032,
+            "fidelity_minus": 1.0,
+            "sparsity": 0.8006,
+            "latency_sec": 0.0006
+          },
+          {
+            "node_idx": 1713,
+            "pred_class": 0,
+            "budget_edges": 158,
+            "subgraph_edges": 792,
+            "fidelity_plus": -0.0566,
+            "fidelity_minus": 0.122,
+            "sparsity": 0.8005,
+            "latency_sec": 0.0
+          }
+        ]
+      }
+    }
+  },
+  "Amazon Photo": {
+    "dataset_stats": {
+      "num_nodes": 7650,
+      "num_edges": 238162,
+      "num_features": 745,
+      "num_classes": 8,
+      "num_train": 160,
+      "num_val": 240,
+      "num_test": 7250
+    },
+    "training_metrics": {
+      "train_time_sec": 2.38,
+      "train_acc": 0.9125,
+      "val_acc": 0.8667,
+      "test_acc": 0.8484
+    },
+    "xai_metrics": {
+      "gnnexplainer": {
+        "summary": {
+          "avg_fidelity_plus": 0.0756,
+          "avg_fidelity_minus": 0.8363,
+          "avg_sparsity": 0.8002,
+          "avg_latency_sec": 7.3282
+        },
+        "node_details": [
+          {
+            "node_idx": 0,
+            "pred_class": 6,
+            "budget_edges": 16578,
+            "subgraph_edges": 82890,
+            "fidelity_plus": -0.0031,
+            "fidelity_minus": 0.3911,
+            "sparsity": 0.8,
+            "latency_sec": 6.708
+          },
+          {
+            "node_idx": 1,
+            "pred_class": 4,
+            "budget_edges": 1159,
+            "subgraph_edges": 5798,
+            "fidelity_plus": -0.207,
+            "fidelity_minus": 0.981,
+            "sparsity": 0.8001,
+            "latency_sec": 8.395
+          },
+          {
+            "node_idx": 2,
+            "pred_class": 3,
+            "budget_edges": 263,
+            "subgraph_edges": 1318,
+            "fidelity_plus": 0.2477,
+            "fidelity_minus": 0.8921,
+            "sparsity": 0.8005,
+            "latency_sec": 7.079
+          },
+          {
+            "node_idx": 4,
+            "pred_class": 5,
+            "budget_edges": 992,
+            "subgraph_edges": 4964,
+            "fidelity_plus": -0.3483,
+            "fidelity_minus": 0.9749,
+            "sparsity": 0.8002,
+            "latency_sec": 6.898
+          },
+          {
+            "node_idx": 5,
+            "pred_class": 3,
+            "budget_edges": 20319,
+            "subgraph_edges": 101596,
+            "fidelity_plus": 0.6888,
+            "fidelity_minus": 0.9425,
+            "sparsity": 0.8,
+            "latency_sec": 7.561
+          }
+        ]
+      },
+      "random_baseline": {
+        "summary": {
+          "avg_fidelity_plus": 0.0052,
+          "avg_fidelity_minus": 0.6642,
+          "avg_sparsity": 0.8002,
+          "avg_latency_sec": 0.0023
+        },
+        "node_details": [
+          {
+            "node_idx": 0,
+            "pred_class": 6,
+            "budget_edges": 16578,
+            "subgraph_edges": 82890,
+            "fidelity_plus": 0.0088,
+            "fidelity_minus": 0.3358,
+            "sparsity": 0.8,
+            "latency_sec": 0.0053
+          },
+          {
+            "node_idx": 1,
+            "pred_class": 4,
+            "budget_edges": 1159,
+            "subgraph_edges": 5798,
+            "fidelity_plus": 0.0418,
+            "fidelity_minus": 0.8988,
+            "sparsity": 0.8001,
+            "latency_sec": 0.0
+          },
+          {
+            "node_idx": 2,
+            "pred_class": 3,
+            "budget_edges": 263,
+            "subgraph_edges": 1318,
+            "fidelity_plus": -0.016,
+            "fidelity_minus": 0.5933,
+            "sparsity": 0.8005,
+            "latency_sec": 0.0006
+          },
+          {
+            "node_idx": 4,
+            "pred_class": 5,
+            "budget_edges": 992,
+            "subgraph_edges": 4964,
+            "fidelity_plus": -0.0131,
+            "fidelity_minus": 0.7772,
+            "sparsity": 0.8002,
+            "latency_sec": 0.0006
+          },
+          {
+            "node_idx": 5,
+            "pred_class": 3,
+            "budget_edges": 20319,
+            "subgraph_edges": 101596,
+            "fidelity_plus": 0.0043,
+            "fidelity_minus": 0.7158,
+            "sparsity": 0.8,
+            "latency_sec": 0.005
+          }
+        ]
+      }
+    }
+  },
+  "Coauthor CS": {
+    "dataset_stats": {
+      "num_nodes": 18333,
+      "num_edges": 163788,
+      "num_features": 6805,
+      "num_classes": 15,
+      "num_train": 300,
+      "num_val": 443,
+      "num_test": 17590
+    },
+    "training_metrics": {
+      "train_time_sec": 6.53,
+      "train_acc": 1.0,
+      "val_acc": 0.9233,
+      "test_acc": 0.9062
+    },
+    "xai_metrics": {
+      "gnnexplainer": {
+        "summary": {
+          "avg_fidelity_plus": -0.0171,
+          "avg_fidelity_minus": 0.9812,
+          "avg_sparsity": 0.8003,
+          "avg_latency_sec": 15.983
+        },
+        "node_details": [
+          {
+            "node_idx": 0,
+            "pred_class": 13,
+            "budget_edges": 174,
+            "subgraph_edges": 870,
+            "fidelity_plus": 0.0031,
+            "fidelity_minus": 1.0,
+            "sparsity": 0.8,
+            "latency_sec": 16.064
+          },
+          {
+            "node_idx": 1,
+            "pred_class": 2,
+            "budget_edges": 82,
+            "subgraph_edges": 412,
+            "fidelity_plus": -0.0877,
+            "fidelity_minus": 0.906,
+            "sparsity": 0.801,
+            "latency_sec": 16.087
+          },
+          {
+            "node_idx": 2,
+            "pred_class": 13,
+            "budget_edges": 143,
+            "subgraph_edges": 716,
+            "fidelity_plus": 0.0004,
+            "fidelity_minus": 1.0,
+            "sparsity": 0.8003,
+            "latency_sec": 15.9
+          },
+          {
+            "node_idx": 3,
+            "pred_class": 2,
+            "budget_edges": 86,
+            "subgraph_edges": 430,
+            "fidelity_plus": -0.0,
+            "fidelity_minus": 1.0,
+            "sparsity": 0.8,
+            "latency_sec": 16.054
+          },
+          {
+            "node_idx": 4,
+            "pred_class": 0,
+            "budget_edges": 4,
+            "subgraph_edges": 20,
+            "fidelity_plus": -0.0014,
+            "fidelity_minus": 0.9999,
+            "sparsity": 0.8,
+            "latency_sec": 15.81
+          }
+        ]
+      },
+      "random_baseline": {
+        "summary": {
+          "avg_fidelity_plus": 0.0451,
+          "avg_fidelity_minus": 0.9999,
+          "avg_sparsity": 0.8003,
+          "avg_latency_sec": 0.0001
+        },
+        "node_details": [
+          {
+            "node_idx": 0,
+            "pred_class": 13,
+            "budget_edges": 174,
+            "subgraph_edges": 870,
+            "fidelity_plus": -0.0002,
+            "fidelity_minus": 0.9999,
+            "sparsity": 0.8,
+            "latency_sec": 0.0006
+          },
+          {
+            "node_idx": 1,
+            "pred_class": 2,
+            "budget_edges": 82,
+            "subgraph_edges": 412,
+            "fidelity_plus": 0.2265,
+            "fidelity_minus": 0.9996,
+            "sparsity": 0.801,
+            "latency_sec": 0.0
+          },
+          {
+            "node_idx": 2,
+            "pred_class": 13,
+            "budget_edges": 143,
+            "subgraph_edges": 716,
+            "fidelity_plus": -0.0,
+            "fidelity_minus": 1.0,
+            "sparsity": 0.8003,
+            "latency_sec": 0.0
+          },
+          {
+            "node_idx": 3,
+            "pred_class": 2,
+            "budget_edges": 86,
+            "subgraph_edges": 430,
+            "fidelity_plus": 0.0002,
+            "fidelity_minus": 1.0,
+            "sparsity": 0.8,
+            "latency_sec": 0.0
+          },
+          {
+            "node_idx": 4,
+            "pred_class": 0,
+            "budget_edges": 4,
+            "subgraph_edges": 20,
+            "fidelity_plus": -0.001,
+            "fidelity_minus": 0.9999,
+            "sparsity": 0.8,
+            "latency_sec": 0.0
+          }
+        ]
+      }
+    }
+  },
+  "Chameleon": {
+    "dataset_stats": {
+      "tier": "Tier 2 (M\u1edf r\u1ed9ng)",
+      "num_nodes": 2277,
+      "num_edges": 36101,
+      "num_features": 2325,
+      "num_classes": 5,
+      "num_train": 1092,
+      "num_val": 729,
+      "num_test": 456
+    },
+    "training_metrics": {
+      "train_time_sec": 0.455,
+      "train_acc": 0.8022,
+      "val_acc": 0.3567,
+      "test_acc": 0.3311
+    },
+    "xai_metrics": {
+      "gnnexplainer": {
+        "summary": {
+          "avg_fidelity_plus": 0.2066,
+          "avg_fidelity_minus": -0.0049,
+          "avg_sparsity": 0.8,
+          "avg_latency_sec": 1.66
+        },
+        "node_details": [
+          {
+            "node_idx": 2064,
+            "pred_class": 3,
+            "budget_edges": 7220,
+            "subgraph_edges": 36101,
+            "fidelity_plus": 0.4956,
+            "fidelity_minus": 0.0031,
+            "sparsity": 0.8,
+            "latency_sec": 1.6174
+          },
+          {
+            "node_idx": 944,
+            "pred_class": 4,
+            "budget_edges": 7220,
+            "subgraph_edges": 36101,
+            "fidelity_plus": 0.7343,
+            "fidelity_minus": -0.036,
+            "sparsity": 0.8,
+            "latency_sec": 1.6492
+          },
+          {
+            "node_idx": 2187,
+            "pred_class": 1,
+            "budget_edges": 7220,
+            "subgraph_edges": 36101,
+            "fidelity_plus": -0.1967,
+            "fidelity_minus": 0.0086,
+            "sparsity": 0.8,
+            "latency_sec": 1.7776
+          },
+          {
+            "node_idx": 756,
+            "pred_class": 1,
+            "budget_edges": 7220,
+            "subgraph_edges": 36101,
+            "fidelity_plus": 0.0,
+            "fidelity_minus": 0.0,
+            "sparsity": 0.8,
+            "latency_sec": 1.6132
+          },
+          {
+            "node_idx": 2,
+            "pred_class": 1,
+            "budget_edges": 7220,
+            "subgraph_edges": 36101,
+            "fidelity_plus": 0.0,
+            "fidelity_minus": 0.0,
+            "sparsity": 0.8,
+            "latency_sec": 1.6428
+          }
+        ]
+      },
+      "random_baseline": {
+        "summary": {
+          "avg_fidelity_plus": 0.0007,
+          "avg_fidelity_minus": 0.2501,
+          "avg_sparsity": 0.8,
+          "avg_latency_sec": 0.0163
+        },
+        "node_details": [
+          {
+            "node_idx": 2064,
+            "pred_class": 3,
+            "budget_edges": 7220,
+            "subgraph_edges": 36101,
+            "fidelity_plus": -0.0458,
+            "fidelity_minus": 0.4218,
+            "sparsity": 0.8,
+            "latency_sec": 0.0167
+          },
+          {
+            "node_idx": 944,
+            "pred_class": 4,
+            "budget_edges": 7220,
+            "subgraph_edges": 36101,
+            "fidelity_plus": 0.0758,
+            "fidelity_minus": 0.7183,
+            "sparsity": 0.8,
+            "latency_sec": 0.0142
+          },
+          {
+            "node_idx": 2187,
+            "pred_class": 1,
+            "budget_edges": 7220,
+            "subgraph_edges": 36101,
+            "fidelity_plus": -0.0266,
+            "fidelity_minus": 0.1103,
+            "sparsity": 0.8,
+            "latency_sec": 0.0189
+          },
+          {
+            "node_idx": 756,
+            "pred_class": 1,
+            "budget_edges": 7220,
+            "subgraph_edges": 36101,
+            "fidelity_plus": 0.0,
+            "fidelity_minus": 0.0,
+            "sparsity": 0.8,
+            "latency_sec": 0.0155
+          },
+          {
+            "node_idx": 2,
+            "pred_class": 1,
+            "budget_edges": 7220,
+            "subgraph_edges": 36101,
+            "fidelity_plus": 0.0,
+            "fidelity_minus": 0.0,
+            "sparsity": 0.8,
+            "latency_sec": 0.0163
+          }
+        ]
+      }
+    }
+  },
+  "CiteSeer": {
+    "dataset_stats": {
+      "tier": "Tier 2 (M\u1edf r\u1ed9ng)",
+      "num_nodes": 3327,
+      "num_edges": 9104,
+      "num_features": 3703,
+      "num_classes": 6,
+      "num_train": 120,
+      "num_val": 500,
+      "num_test": 1000
+    },
+    "training_metrics": {
+      "train_time_sec": 0.629,
+      "train_acc": 1.0,
+      "val_acc": 0.68,
+      "test_acc": 0.682
+    },
+    "xai_metrics": {
+      "gnnexplainer": {
+        "summary": {
+          "avg_fidelity_plus": 0.2065,
+          "avg_fidelity_minus": -0.0394,
+          "avg_sparsity": 0.8001,
+          "avg_latency_sec": 2.0317
+        },
+        "node_details": [
+          {
+            "node_idx": 2859,
+            "pred_class": 2,
+            "budget_edges": 1820,
+            "subgraph_edges": 9104,
+            "fidelity_plus": -0.0006,
+            "fidelity_minus": -0.0994,
+            "sparsity": 0.8001,
+            "latency_sec": 2.0685
+          },
+          {
+            "node_idx": 2935,
+            "pred_class": 0,
+            "budget_edges": 1820,
+            "subgraph_edges": 9104,
+            "fidelity_plus": 0.3849,
+            "fidelity_minus": 0.0,
+            "sparsity": 0.8001,
+            "latency_sec": 2.061
+          },
+          {
+            "node_idx": 3136,
+            "pred_class": 2,
+            "budget_edges": 1820,
+            "subgraph_edges": 9104,
+            "fidelity_plus": 0.2158,
+            "fidelity_minus": -0.0436,
+            "sparsity": 0.8001,
+            "latency_sec": 2.2112
+          },
+          {
+            "node_idx": 2380,
+            "pred_class": 1,
+            "budget_edges": 1820,
+            "subgraph_edges": 9104,
+            "fidelity_plus": 0.0993,
+            "fidelity_minus": -0.0429,
+            "sparsity": 0.8001,
+            "latency_sec": 1.9287
+          },
+          {
+            "node_idx": 2406,
+            "pred_class": 2,
+            "budget_edges": 1820,
+            "subgraph_edges": 9104,
+            "fidelity_plus": 0.3329,
+            "fidelity_minus": -0.0113,
+            "sparsity": 0.8001,
+            "latency_sec": 1.8893
+          }
+        ]
+      },
+      "random_baseline": {
+        "summary": {
+          "avg_fidelity_plus": -0.047,
+          "avg_fidelity_minus": 0.1891,
+          "avg_sparsity": 0.8001,
+          "avg_latency_sec": 0.022
+        },
+        "node_details": [
+          {
+            "node_idx": 2859,
+            "pred_class": 2,
+            "budget_edges": 1820,
+            "subgraph_edges": 9104,
+            "fidelity_plus": -0.0244,
+            "fidelity_minus": -0.0006,
+            "sparsity": 0.8001,
+            "latency_sec": 0.0245
+          },
+          {
+            "node_idx": 2935,
+            "pred_class": 0,
+            "budget_edges": 1820,
+            "subgraph_edges": 9104,
+            "fidelity_plus": 0.0,
+            "fidelity_minus": 0.3849,
+            "sparsity": 0.8001,
+            "latency_sec": 0.0213
+          },
+          {
+            "node_idx": 3136,
+            "pred_class": 2,
+            "budget_edges": 1820,
+            "subgraph_edges": 9104,
+            "fidelity_plus": -0.0709,
+            "fidelity_minus": 0.2158,
+            "sparsity": 0.8001,
+            "latency_sec": 0.0242
+          },
+          {
+            "node_idx": 2380,
+            "pred_class": 1,
+            "budget_edges": 1820,
+            "subgraph_edges": 9104,
+            "fidelity_plus": 0.0568,
+            "fidelity_minus": 0.0123,
+            "sparsity": 0.8001,
+            "latency_sec": 0.0189
+          },
+          {
+            "node_idx": 2406,
+            "pred_class": 2,
+            "budget_edges": 1820,
+            "subgraph_edges": 9104,
+            "fidelity_plus": -0.1966,
+            "fidelity_minus": 0.3329,
+            "sparsity": 0.8001,
+            "latency_sec": 0.0213
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+======================================================================
+CHI TIET NOI DUNG TENSOR cora/data.pt MO TRUC TIEP TREN IDE
+======================================================================
+
+1. TONG QUAN GRAPH CORA:
+   - So nodes: 2708
+   - So canh (edges): 10556
+   - So chieu feature x: 1433
+   - So lop nhan y: 7 lop
+   - Train nodes: 140
+   - Val nodes: 500
+   - Test nodes: 1000
+   - Tong nodes co mask: 1640 (60.56%)
+   - Nodes BI BO SOT (Unmasked): 1068 (39.44%)
+
+2. PHAN BO NHAN Y TRÊN CORA (7 LOP):
+   - Lop 0: 351 nodes
+   - Lop 1: 217 nodes
+   - Lop 2: 418 nodes
+   - Lop 3: 818 nodes
+   - Lop 4: 426 nodes
+   - Lop 5: 298 nodes
+   - Lop 6: 180 nodes
+
+3. MA TRAN CANH edge_index (20 canh dau tien):
+   Edge  0: 0 -> 633
+   Edge  1: 0 -> 1862
+   Edge  2: 0 -> 2582
+   Edge  3: 1 -> 2
+   Edge  4: 1 -> 652
+   Edge  5: 1 -> 654
+   Edge  6: 2 -> 1
+   Edge  7: 2 -> 332
+   Edge  8: 2 -> 1454
+   Edge  9: 2 -> 1666
+   Edge 10: 2 -> 1986
+   Edge 11: 3 -> 2544
+   Edge 12: 4 -> 1016
+   Edge 13: 4 -> 1256
+   Edge 14: 4 -> 1761
+   Edge 15: 4 -> 2175
+   Edge 16: 4 -> 2176
+   Edge 17: 5 -> 1629
+   Edge 18: 5 -> 1659
+   Edge 19: 5 -> 2546

@@ -1,0 +1,55 @@
+{
+  "mo_ta": "Du lieu doc duoc tu gcn_ckpt.pt (PyTorch Binary Checkpoint)",
+  "kien_truc_mo_hinh": "gcn",
+  "so_chieu_input": 10,
+  "so_chieu_hidden": 32,
+  "so_lop_phan_loai": 4,
+  "ti_le_dropout": 0.0,
+  "random_seed": 0,
+  "train_seed": 1000,
+  "do_do_metrics_luu_trong_ckpt": {
+    "val_acc": 0.8571428656578064,
+    "train_time": 3.0672073364257812,
+    "train_acc": 0.8476190567016602,
+    "test_acc": 0.8785714507102966,
+    "test_macro_f1": 0.6891354913742973
+  },
+  "kich_thuoc_cac_lop_trong_state_dict": {
+    "c1.bias": [
+      32
+    ],
+    "c1.lin.weight": [
+      32,
+      10
+    ],
+    "c2.bias": [
+      4
+    ],
+    "c2.lin.weight": [
+      4,
+      32
+    ]
+  },
+  "mau_20_du_doan_dau_tien": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

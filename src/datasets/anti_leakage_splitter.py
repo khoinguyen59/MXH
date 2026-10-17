@@ -114,8 +114,19 @@ class AntiLeakageSplitter:
         # Fit strictly on training nodes
         self.scaler.fit(train_x)
 
+        # Standardize columns with non-zero variance, preserve constant columns
+        variances = np.var(train_x, axis=0)
+        constant_cols = variances < 1e-6
+        if np.all(constant_cols):
+            # All columns are constant, keep original data
+            return data
+
         # Transform all nodes using training statistics
         x_scaled = self.scaler.transform(x_np)
+        if np.any(constant_cols):
+            # Restore constant columns to their original values
+            x_scaled[:, constant_cols] = x_np[:, constant_cols]
+
         data.x = torch.tensor(x_scaled, dtype=torch.float32)
 
         return data

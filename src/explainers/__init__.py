@@ -10,6 +10,13 @@ from src.explainers.random_explainer import RandomExplainer
 from src.explainers.saliency import SaliencyExplainer
 from src.explainers.subgraphx import SubgraphXExplainer
 
+from src.explainers.edge_explainer_service import (
+    explain_edges,
+    get_candidate_edges,
+    LAST_NODE_FEAT_MASK,
+    export_explanation_results,
+)
+
 __all__ = [
     "BaseExplainer",
     "ExplanationResult",
@@ -21,5 +28,10 @@ __all__ = [
     "SubgraphXExplainer",
     "EigSearchExplainer",
     "LTDEFExplainer",
+    "explain_edges",
+    "get_candidate_edges",
+    "LAST_NODE_FEAT_MASK",
+    "export_explanation_results",
 ]
+
 

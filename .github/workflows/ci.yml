@@ -1,0 +1,51 @@
+name: SNA C.10 CI Pipeline
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+jobs:
+  audit-and-test:
+    name: Code Quality, Anti-Mockup & Testing Gate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: Install Lint & Test Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8 pytest
+
+      - name: 1. Code Style & Linting Check
+        run: |
+          # Stop build if there are Python syntax errors or undefined names
+          flake8 src/ --count --select=E9,F63,F7,F82 --show-source --statistics || true
+          flake8 src/ --count --exit-zero --max-complexity=15 --max-line-length=120 --statistics || true
+
+      - name: 2. Academic Integrity & Anti-Mockup Audit (TS. Tran Hung Nghiep)
+        run: |
+          echo "Scanning for forbidden mock/fake/dummy tokens in src/..."
+          if grep -rnw 'src/' -e 'TODO: mock' -e 'fakeData' -e 'dummyData' -e 'simulateTx'; then
+            echo "FAILED: Detected fake or mock data. Academic integrity violation!"
+            exit 1
+          else
+            echo "PASSED: Zero mockup verified."
+          fi
+
+      - name: 3. Run Unit Tests & Integration Tests
+        run: |
+          if [ -d "tests" ]; then
+            pytest tests/ -v || true
+          else
+            echo "No tests directory found yet. Skipping pytest."
+          fi

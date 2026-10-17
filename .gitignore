@@ -1,41 +1,86 @@
-# Python & Environments
+# ==============================================================================
+# SNA Group 10 - Git Ignore Configuration
+# Topic C.10: Making Graph Machine Learning Models Explainable
+# ==============================================================================
+
+# 1. Byte-compiled / Python runtime
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
-env/
-venv/
+
+# 2. Virtual Environments & Local Dependencies
+.env
+.env.*
 .venv/
+venv/
+env/
 ENV/
+miniconda3/
 
-# Exclude Non-Source Directories (Local Only - Only src/ is tracked)
-.agents/
-.github/
-AGENTS.md
-docs/
-product/
-experiments/
-repos/
-checkpoints/
-data/
-tests/
+# 3. Large Datasets & Checkpoint Binaries (STORE ON GOOGLE DRIVE)
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.h5
+*.onnx
+*.pkl
+*.pickle
+*.zip
+*.tar.gz
+*.7z
+*.rar
+**/raw/
+**/processed/
+data/CiteSeer/
+data/Coauthor/
+data/FacebookPagePage/
+data/twibot20/
+data/twitch/
+data/cora/Cora/
+data/cora/raw/
+data/cora/processed/
+data_drive_upload/
+
+# 4. Local Research & Development Working Dirs
 scratch/
-UNIVERSAL_AI_AGENT_KIT/
-HelpMe*.docx
-SNA_Mini proposal.docx
-~$*
-
-# Build, Lint & OS
+repos/
+colab_upload/
+product/
+checkpoints/
+backups/
+experiments/logs/
+experiments/**/checkpoints/
 .pytest_cache/
-.coverage
-htmlcov/
 .mypy_cache/
 .ruff_cache/
 graphify-out*/
+.agents/
+AGENTS.md
+UNIVERSAL_AI_AGENT_KIT/
+tools/
+docs/
+
+# 5. IDEs, OS & Temporary files
 .idea/
 .vscode/
 *.swp
 *.swo
+*.tmp
+*.log
 .DS_Store
 Thumbs.db
+desktop.ini
+~$*
+*.xlsx
+
+# 6. EXCEPTIONS (Always track metadata and documentation)
+!data/**/config.json
+!data/**/val_nodes.json
+!data/**/summary.json
+!data/**/checks.json
+!data/**/load_t01.py
+!data/**/README.md
+!data/**/.gitkeep

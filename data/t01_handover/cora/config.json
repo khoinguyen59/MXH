@@ -1,0 +1,47 @@
+{
+  "dataset": "cora",
+  "stats": {
+    "name": "cora",
+    "nodes": 2708,
+    "edge_entries": 10556,
+    "self_loops_removed": 0,
+    "features": 1433,
+    "classes": 7,
+    "undirected": true,
+    "train": 140,
+    "val": 500,
+    "test": 1000
+  },
+  "split_seed": 0,
+  "gnn_seed": 0,
+  "train_seed": 1000,
+  "model": {
+    "arch": "gcn",
+    "layers": 2,
+    "hidden": 64,
+    "dropout": 0.5,
+    "lr": 0.01,
+    "weight_decay": 0.0005,
+    "epochs": 200,
+    "selection": "best validation accuracy"
+  },
+  "metrics": {
+    "test_acc": 0.8360000252723694,
+    "test_macro_f1": 0.8246356671891026,
+    "val_acc": 0.8159999847412109,
+    "train_acc": 0.9928571581840515
+  },
+  "versions": {
+    "python": "3.13.16",
+    "torch": "2.14.1+cu130",
+    "torch_geometric": "2.8.0.post1"
+  },
+  "preprocessing": {
+    "self_loops": "đã loại",
+    "edges": "coalesce, sắp xếp, vô hướng đối xứng",
+    "features": "chuẩn hóa hàng (tổng = 1)",
+    "split": "public split của Planetoid 140/500/1000",
+    "bashapes_generator": null
+  },
+  "explain_rule": "giải thích lớp GCN đã dự đoán (pred) trên đồ thị gốc; model.eval(); không cập nhật trọng số"
+}

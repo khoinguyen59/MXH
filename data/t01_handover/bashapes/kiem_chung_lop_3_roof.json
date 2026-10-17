@@ -1,0 +1,200 @@
+{
+  "mo_ta": "Chi tiet danh gia du doan cua checkpoint gcn_ckpt.pt tren tap Test va Val (Chung minh Lop 3 Recall = 0.0%)",
+  "tong_quan_tap_test_140_nodes": {
+    "tong_so_node_test": 140,
+    "so_node_theo_tung_lop": {
+      "Lop_0": 60,
+      "Lop_1": 32,
+      "Lop_2": 32,
+      "Lop_3": 16
+    },
+    "do_chinh_xac_recall_tung_lop": {
+      "Lop_0": {
+        "tong_so_node": 60,
+        "so_node_doan_dung": 60,
+        "recall_phan_tram": "100.00%"
+      },
+      "Lop_1": {
+        "tong_so_node": 32,
+        "so_node_doan_dung": 32,
+        "recall_phan_tram": "100.00%"
+      },
+      "Lop_2": {
+        "tong_so_node": 32,
+        "so_node_doan_dung": 31,
+        "recall_phan_tram": "96.88%"
+      },
+      "Lop_3": {
+        "tong_so_node": 16,
+        "so_node_doan_dung": 0,
+        "recall_phan_tram": "0.00%"
+      }
+    }
+  },
+  "danh_sach_16_node_lop_3_tap_test": [
+    {
+      "node_id": 304,
+      "nhan_thuc_te_true_y": 3,
+      "nhan_mo_hinh_doan_pred": 2,
+      "ket_qua": "SAI_HOAN_TOAN"
+    },
+    {
+      "node_id": 339,
+      "nhan_thuc_te_true_y": 3,
+      "nhan_mo_hinh_doan_pred": 2,
+      "ket_qua": "SAI_HOAN_TOAN"
+    },
+    {
+      "node_id": 349,
+      "nhan_thuc_te_true_y": 3,
+      "nhan_mo_hinh_doan_pred": 2,
+      "ket_qua": "SAI_HOAN_TOAN"
+    },
+    {
+      "node_id": 389,
+      "nhan_thuc_te_true_y": 3,
+      "nhan_mo_hinh_doan_pred": 1,
+      "ket_qua": "SAI_HOAN_TOAN"
+    },
+    {
+      "node_id": 414,
+      "nhan_thuc_te_true_y": 3,
+      "nhan_mo_hinh_doan_pred": 1,
+      "ket_qua": "SAI_HOAN_TOAN"
+    },
+    {
+      "node_id": 419,
+      "nhan_thuc_te_true_y": 3,
+      "nhan_mo_hinh_doan_pred": 1,
+      "ket_qua": "SAI_HOAN_TOAN"
+    },
+    {
+      "node_id": 494,
+      "nhan_thuc_te_true_y": 3,
+      "nhan_mo_hinh_doan_pred": 1,
+      "ket_qua": "SAI_HOAN_TOAN"
+    },
+    {
+      "node_id": 514,
+      "nhan_thuc_te_true_y": 3,
+      "nhan_mo_hinh_doan_pred": 1,
+      "ket_qua": "SAI_HOAN_TOAN"
+    },
+    {
+      "node_id": 534,
+      "nhan_thuc_te_true_y": 3,
+      "nhan_mo_hinh_doan_pred": 1,
+      "ket_qua": "SAI_HOAN_TOAN"
+    },
+    {
+      "node_id": 539,
+      "nhan_thuc_te_true_y": 3,
+      "nhan_mo_hinh_doan_pred": 1,
+      "ket_qua": "SAI_HOAN_TOAN"
+    },
+    {
+      "node_id": 544,
+      "nhan_thuc_te_true_y": 3,
+      "nhan_mo_hinh_doan_pred": 1,
+      "ket_qua": "SAI_HOAN_TOAN"
+    },
+    {
+      "node_id": 569,
+      "nhan_thuc_te_true_y": 3,
+      "nhan_mo_hinh_doan_pred": 2,
+      "ket_qua": "SAI_HOAN_TOAN"
+    },
+    {
+      "node_id": 594,
+      "nhan_thuc_te_true_y": 3,
+      "nhan_mo_hinh_doan_pred": 1,
+      "ket_qua": "SAI_HOAN_TOAN"
+    },
+    {
+      "node_id": 654,
+      "nhan_thuc_te_true_y": 3,
+      "nhan_mo_hinh_doan_pred": 1,
+      "ket_qua": "SAI_HOAN_TOAN"
+    },
+    {
+      "node_id": 664,
+      "nhan_thuc_te_true_y": 3,
+      "nhan_mo_hinh_doan_pred": 1,
+      "ket_qua": "SAI_HOAN_TOAN"
+    },
+    {
+      "node_id": 689,
+      "nhan_thuc_te_true_y": 3,
+      "nhan_mo_hinh_doan_pred": 1,
+      "ket_qua": "SAI_HOAN_TOAN"
+    }
+  ],
+  "danh_sach_11_node_lop_3_trong_val_nodes": [
+    {
+      "node_id": 374,
+      "nhan_thuc_te_true_y": 3,
+      "nhan_mo_hinh_doan_pred": 2,
+      "ket_qua": "SAI_HOAN_TOAN"
+    },
+    {
+      "node_id": 559,
+      "nhan_thuc_te_true_y": 3,
+      "nhan_mo_hinh_doan_pred": 1,
+      "ket_qua": "SAI_HOAN_TOAN"
+    },
+    {
+      "node_id": 529,
+      "nhan_thuc_te_true_y": 3,
+      "nhan_mo_hinh_doan_pred": 1,
+      "ket_qua": "SAI_HOAN_TOAN"
+    },
+    {
+      "node_id": 684,
+      "nhan_thuc_te_true_y": 3,
+      "nhan_mo_hinh_doan_pred": 2,
+      "ket_qua": "SAI_HOAN_TOAN"
+    },
+    {
+      "node_id": 459,
+      "nhan_thuc_te_true_y": 3,
+      "nhan_mo_hinh_doan_pred": 1,
+      "ket_qua": "SAI_HOAN_TOAN"
+    },
+    {
+      "node_id": 469,
+      "nhan_thuc_te_true_y": 3,
+      "nhan_mo_hinh_doan_pred": 1,
+      "ket_qua": "SAI_HOAN_TOAN"
+    },
+    {
+      "node_id": 519,
+      "nhan_thuc_te_true_y": 3,
+      "nhan_mo_hinh_doan_pred": 1,
+      "ket_qua": "SAI_HOAN_TOAN"
+    },
+    {
+      "node_id": 624,
+      "nhan_thuc_te_true_y": 3,
+      "nhan_mo_hinh_doan_pred": 1,
+      "ket_qua": "SAI_HOAN_TOAN"
+    },
+    {
+      "node_id": 399,
+      "nhan_thuc_te_true_y": 3,
+      "nhan_mo_hinh_doan_pred": 1,
+      "ket_qua": "SAI_HOAN_TOAN"
+    },
+    {
+      "node_id": 629,
+      "nhan_thuc_te_true_y": 3,
+      "nhan_mo_hinh_doan_pred": 1,
+      "ket_qua": "SAI_HOAN_TOAN"
+    },
+    {
+      "node_id": 614,
+      "nhan_thuc_te_true_y": 3,
+      "nhan_mo_hinh_doan_pred": 1,
+      "ket_qua": "SAI_HOAN_TOAN"
+    }
+  ]
+}

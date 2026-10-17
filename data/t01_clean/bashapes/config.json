@@ -1,0 +1,22 @@
+{
+  "dataset": "BA-Shapes",
+  "nodes": 700,
+  "edges": 1718,
+  "features": "all-ones constant 10-dim + 4-dim RWPE",
+  "split": "stratified 60/20/20",
+  "train_nodes": 420,
+  "val_nodes": 140,
+  "test_nodes": 140,
+  "model_architecture": "GCN 3-layer (14 -> 64 -> 64 -> 4)",
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    999
+  ],
+  "mean_test_acc": 0.9885714285714287,
+  "std_test_acc": 0.011605769149479955,
+  "mean_class3_recall": 1.0,
+  "std_class3_recall": 0.0
+}

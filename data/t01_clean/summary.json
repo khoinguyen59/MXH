@@ -1,0 +1,55 @@
+{
+  "bashapes": {
+    "stats": {
+      "name": "bashapes",
+      "nodes": 700,
+      "edge_entries": 1718,
+      "features": 14,
+      "classes": 4,
+      "undirected": true,
+      "train": 420,
+      "val": 140,
+      "test": 140
+    },
+    "mean_test_acc": 0.9885714285714287,
+    "std_test_acc": 0.011605769149479955,
+    "mean_class3_recall": 1.0,
+    "std_class3_recall": 0.0,
+    "n_val_nodes": 100
+  },
+  "cora": {
+    "stats": {
+      "name": "cora",
+      "split_mode": "planetoid_public",
+      "nodes": 2708,
+      "edge_entries": 10556,
+      "features": 1433,
+      "classes": 7,
+      "undirected": true,
+      "train": 140,
+      "val": 500,
+      "test": 1000,
+      "unlabeled": 1068
+    },
+    "mean_test_acc": 0.7932000000000001,
+    "std_test_acc": 0.004166533331199936,
+    "n_val_nodes": 100
+  },
+  "cora_dense": {
+    "stats": {
+      "name": "cora_dense",
+      "split_mode": "full_dense_stratified",
+      "nodes": 2708,
+      "edge_entries": 10556,
+      "features": 1433,
+      "classes": 7,
+      "undirected": true,
+      "train": 1895,
+      "val": 406,
+      "test": 407,
+      "unlabeled": 0
+    },
+    "mean_test_acc": 0.8643734643734643,
+    "std_test_acc": 0.015570495840545309
+  }
+}

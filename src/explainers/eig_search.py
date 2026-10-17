@@ -47,6 +47,17 @@ class EigSearchExplainer(BaseExplainer):
         local_target_node = int(mapping.item())
         sub_x = x[subset_nodes]
         num_edges = sub_edge_index.size(1)
+        if num_edges == 0:
+            elapsed = time.perf_counter() - start_time
+            return ExplanationResult(
+                target_node=node_idx,
+                predicted_class=pred_class,
+                edge_mask=torch.empty(0, dtype=torch.float32),
+                node_feat_mask=None,
+                subgraph_nodes=subset_nodes,
+                subgraph_edge_index=sub_edge_index,
+                execution_time=elapsed,
+            )
 
         # Linear-time single-edge removal perturbation
         edge_scores = torch.zeros(num_edges, dtype=torch.float32)
@@ -73,18 +84,12 @@ class EigSearchExplainer(BaseExplainer):
 
         elapsed = time.perf_counter() - start_time
 
-        # Select top-k edges matching target sparsity
-        k = max(1, int(num_edges * (1.0 - self.sparsity_target)))
-        top_indices = torch.topk(normalized_mask, min(k, num_edges)).indices
-        selected_edges_bool = torch.zeros(num_edges, dtype=torch.bool)
-        selected_edges_bool[top_indices] = True
-
         return ExplanationResult(
             target_node=node_idx,
             predicted_class=pred_class,
             edge_mask=normalized_mask,
             node_feat_mask=None,
             subgraph_nodes=subset_nodes,
-            subgraph_edge_index=sub_edge_index[:, selected_edges_bool],
+            subgraph_edge_index=sub_edge_index,
             execution_time=elapsed,
         )

@@ -1,0 +1,326 @@
+{
+  "cora": {
+    "seed_42": {
+      "test_acc": 0.8845,
+      "nodes": [
+        {
+          "target_node": 270,
+          "pred_class": 0,
+          "num_candidate_edges": 58,
+          "pairwise_agreement": {
+            "GNNExplainer_vs_Saliency": {
+              "kappa": -0.0097,
+              "jaccard": 0.1
+            },
+            "GNNExplainer_vs_Random": {
+              "kappa": -0.0097,
+              "jaccard": 0.1
+            },
+            "GNNExplainer_vs_NearestFirst": {
+              "kappa": 0.2147,
+              "jaccard": 0.2222
+            },
+            "Saliency_vs_Random": {
+              "kappa": -0.0097,
+              "jaccard": 0.1
+            },
+            "Saliency_vs_NearestFirst": {
+              "kappa": 0.4391,
+              "jaccard": 0.375
+            },
+            "Random_vs_NearestFirst": {
+              "kappa": -0.0097,
+              "jaccard": 0.1
+            }
+          }
+        },
+        {
+          "target_node": 2377,
+          "pred_class": 1,
+          "num_candidate_edges": 8,
+          "pairwise_agreement": {
+            "GNNExplainer_vs_Saliency": {
+              "kappa": -0.1429,
+              "jaccard": 0.0
+            },
+            "GNNExplainer_vs_Random": {
+              "kappa": -0.1429,
+              "jaccard": 0.0
+            },
+            "GNNExplainer_vs_NearestFirst": {
+              "kappa": -0.1429,
+              "jaccard": 0.0
+            },
+            "Saliency_vs_Random": {
+              "kappa": 1.0,
+              "jaccard": 1.0
+            },
+            "Saliency_vs_NearestFirst": {
+              "kappa": 1.0,
+              "jaccard": 1.0
+            },
+            "Random_vs_NearestFirst": {
+              "kappa": 1.0,
+              "jaccard": 1.0
+            }
+          }
+        },
+        {
+          "target_node": 1196,
+          "pred_class": 1,
+          "num_candidate_edges": 102,
+          "pairwise_agreement": {
+            "GNNExplainer_vs_Saliency": {
+              "kappa": -0.1195,
+              "jaccard": 0.0526
+            },
+            "GNNExplainer_vs_Random": {
+              "kappa": -0.1195,
+              "jaccard": 0.0526
+            },
+            "GNNExplainer_vs_NearestFirst": {
+              "kappa": 0.0049,
+              "jaccard": 0.1111
+            },
+            "Saliency_vs_Random": {
+              "kappa": 0.0049,
+              "jaccard": 0.1111
+            },
+            "Saliency_vs_NearestFirst": {
+              "kappa": 0.378,
+              "jaccard": 0.3333
+            },
+            "Random_vs_NearestFirst": {
+              "kappa": 0.5024,
+              "jaccard": 0.4286
+            }
+          }
+        },
+        {
+          "target_node": 1187,
+          "pred_class": 0,
+          "num_candidate_edges": 22,
+          "pairwise_agreement": {
+            "GNNExplainer_vs_Saliency": {
+              "kappa": -0.2222,
+              "jaccard": 0.0
+            },
+            "GNNExplainer_vs_Random": {
+              "kappa": 0.3889,
+              "jaccard": 0.3333
+            },
+            "GNNExplainer_vs_NearestFirst": {
+              "kappa": 0.0833,
+              "jaccard": 0.1429
+            },
+            "Saliency_vs_Random": {
+              "kappa": -0.2222,
+              "jaccard": 0.0
+            },
+            "Saliency_vs_NearestFirst": {
+              "kappa": 0.6944,
+              "jaccard": 0.6
+            },
+            "Random_vs_NearestFirst": {
+              "kappa": 0.0833,
+              "jaccard": 0.1429
+            }
+          }
+        },
+        {
+          "target_node": 1614,
+          "pred_class": 4,
+          "num_candidate_edges": 136,
+          "pairwise_agreement": {
+            "GNNExplainer_vs_Saliency": {
+              "kappa": 0.3993,
+              "jaccard": 0.35
+            },
+            "GNNExplainer_vs_Random": {
+              "kappa": -0.1553,
+              "jaccard": 0.0385
+            },
+            "GNNExplainer_vs_NearestFirst": {
+              "kappa": 0.0296,
+              "jaccard": 0.125
+            },
+            "Saliency_vs_Random": {
+              "kappa": -0.1091,
+              "jaccard": 0.0588
+            },
+            "Saliency_vs_NearestFirst": {
+              "kappa": 0.0758,
+              "jaccard": 0.1489
+            },
+            "Random_vs_NearestFirst": {
+              "kappa": 0.7689,
+              "jaccard": 0.6875
+            }
+          }
+        }
+      ]
+    }
+  },
+  "ba_shapes": {
+    "seed_42": {
+      "test_acc": 0.6571,
+      "nodes": [
+        {
+          "target_node": 342,
+          "pred_class": 1,
+          "num_candidate_edges": 12,
+          "pairwise_agreement": {
+            "GNNExplainer_vs_Saliency": {
+              "kappa": -0.2,
+              "jaccard": 0.0
+            },
+            "GNNExplainer_vs_Random": {
+              "kappa": -0.2,
+              "jaccard": 0.0
+            },
+            "GNNExplainer_vs_NearestFirst": {
+              "kappa": -0.2,
+              "jaccard": 0.0
+            },
+            "Saliency_vs_Random": {
+              "kappa": -0.2,
+              "jaccard": 0.0
+            },
+            "Saliency_vs_NearestFirst": {
+              "kappa": -0.2,
+              "jaccard": 0.0
+            },
+            "Random_vs_NearestFirst": {
+              "kappa": 0.4,
+              "jaccard": 0.3333
+            }
+          }
+        },
+        {
+          "target_node": 580,
+          "pred_class": 1,
+          "num_candidate_edges": 18,
+          "pairwise_agreement": {
+            "GNNExplainer_vs_Saliency": {
+              "kappa": -0.2,
+              "jaccard": 0.0
+            },
+            "GNNExplainer_vs_Random": {
+              "kappa": -0.2,
+              "jaccard": 0.0
+            },
+            "GNNExplainer_vs_NearestFirst": {
+              "kappa": 0.2,
+              "jaccard": 0.2
+            },
+            "Saliency_vs_Random": {
+              "kappa": 0.2,
+              "jaccard": 0.2
+            },
+            "Saliency_vs_NearestFirst": {
+              "kappa": -0.2,
+              "jaccard": 0.0
+            },
+            "Random_vs_NearestFirst": {
+              "kappa": -0.2,
+              "jaccard": 0.0
+            }
+          }
+        },
+        {
+          "target_node": 534,
+          "pred_class": 1,
+          "num_candidate_edges": 14,
+          "pairwise_agreement": {
+            "GNNExplainer_vs_Saliency": {
+              "kappa": -0.1667,
+              "jaccard": 0.0
+            },
+            "GNNExplainer_vs_Random": {
+              "kappa": -0.1667,
+              "jaccard": 0.0
+            },
+            "GNNExplainer_vs_NearestFirst": {
+              "kappa": -0.1667,
+              "jaccard": 0.0
+            },
+            "Saliency_vs_Random": {
+              "kappa": -0.1667,
+              "jaccard": 0.0
+            },
+            "Saliency_vs_NearestFirst": {
+              "kappa": 1.0,
+              "jaccard": 1.0
+            },
+            "Random_vs_NearestFirst": {
+              "kappa": -0.1667,
+              "jaccard": 0.0
+            }
+          }
+        },
+        {
+          "target_node": 8,
+          "pred_class": 0,
+          "num_candidate_edges": 112,
+          "pairwise_agreement": {
+            "GNNExplainer_vs_Saliency": {
+              "kappa": 0.3778,
+              "jaccard": 0.3333
+            },
+            "GNNExplainer_vs_Random": {
+              "kappa": -0.1313,
+              "jaccard": 0.0476
+            },
+            "GNNExplainer_vs_NearestFirst": {
+              "kappa": 0.0384,
+              "jaccard": 0.1282
+            },
+            "Saliency_vs_Random": {
+              "kappa": -0.1879,
+              "jaccard": 0.0233
+            },
+            "Saliency_vs_NearestFirst": {
+              "kappa": 0.0384,
+              "jaccard": 0.1282
+            },
+            "Random_vs_NearestFirst": {
+              "kappa": 0.5475,
+              "jaccard": 0.4667
+            }
+          }
+        },
+        {
+          "target_node": 667,
+          "pred_class": 1,
+          "num_candidate_edges": 12,
+          "pairwise_agreement": {
+            "GNNExplainer_vs_Saliency": {
+              "kappa": 0.4,
+              "jaccard": 0.3333
+            },
+            "GNNExplainer_vs_Random": {
+              "kappa": -0.2,
+              "jaccard": 0.0
+            },
+            "GNNExplainer_vs_NearestFirst": {
+              "kappa": -0.2,
+              "jaccard": 0.0
+            },
+            "Saliency_vs_Random": {
+              "kappa": -0.2,
+              "jaccard": 0.0
+            },
+            "Saliency_vs_NearestFirst": {
+              "kappa": -0.2,
+              "jaccard": 0.0
+            },
+            "Random_vs_NearestFirst": {
+              "kappa": 0.4,
+              "jaccard": 0.3333
+            }
+          }
+        }
+      ]
+    }
+  }
+}

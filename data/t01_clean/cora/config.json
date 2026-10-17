@@ -1,0 +1,17 @@
+{
+  "dataset": "Cora (Planetoid Public Split)",
+  "split_mode": "planetoid_public",
+  "train_nodes": 140,
+  "val_nodes": 500,
+  "test_nodes": 1000,
+  "unlabeled_nodes": 1068,
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    999
+  ],
+  "mean_test_acc": 0.7932000000000001,
+  "std_test_acc": 0.004166533331199936
+}

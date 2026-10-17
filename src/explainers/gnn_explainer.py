@@ -64,6 +64,22 @@ class GNNExplainerWrapper(BaseExplainer):
             logits = self.model(x, edge_index)
             pred_class = int(logits[node_idx].argmax(dim=-1).item())
 
+        subset_nodes, sub_edge_index, mapping, edge_mask_bool = (
+            self.get_k_hop_computation_graph(node_idx, edge_index, x.size(0))
+        )
+
+        if sub_edge_index.size(1) == 0:
+            elapsed = time.perf_counter() - start_time
+            return ExplanationResult(
+                target_node=node_idx,
+                predicted_class=pred_class,
+                edge_mask=torch.empty(0, dtype=torch.float32, device=x.device),
+                node_feat_mask=None,
+                subgraph_nodes=subset_nodes,
+                subgraph_edge_index=sub_edge_index,
+                execution_time=elapsed,
+            )
+
         # Generate explanation via PyG Explainer
         explanation = self.explainer(
             x=x,
@@ -72,10 +88,6 @@ class GNNExplainerWrapper(BaseExplainer):
         )
 
         elapsed = time.perf_counter() - start_time
-
-        subset_nodes, sub_edge_index, mapping, edge_mask_bool = (
-            self.get_k_hop_computation_graph(node_idx, edge_index, x.size(0))
-        )
 
         # Extract edge mask corresponding to k-hop computation subgraph
         edge_mask = explanation.edge_mask[edge_mask_bool]

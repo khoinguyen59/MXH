@@ -110,6 +110,19 @@ class SubgraphXExplainer(BaseExplainer):
         local_target_node = int(mapping.item())
         sub_x = x[subset_nodes]
         num_sub_nodes = subset_nodes.size(0)
+        num_edges = sub_edge_index.size(1)
+
+        if num_edges == 0:
+            elapsed = time.perf_counter() - start_time
+            return ExplanationResult(
+                target_node=node_idx,
+                predicted_class=pred_class,
+                edge_mask=torch.empty(0, dtype=torch.float32),
+                node_feat_mask=None,
+                subgraph_nodes=subset_nodes,
+                subgraph_edge_index=sub_edge_index,
+                execution_time=elapsed,
+            )
 
         # Initialize root with all nodes in computation graph
         root = MCTSNode(coalition=set(range(num_sub_nodes)))
@@ -190,7 +203,7 @@ class SubgraphXExplainer(BaseExplainer):
             predicted_class=pred_class,
             edge_mask=edge_mask,
             node_feat_mask=None,
-            subgraph_nodes=subset_nodes[coalition_tensor],
-            subgraph_edge_index=sub_edge_index[:, edge_in_coalition],
+            subgraph_nodes=subset_nodes,
+            subgraph_edge_index=sub_edge_index,
             execution_time=elapsed,
         )

@@ -1,0 +1,78 @@
+================================================================================
+MINH CHỨNG THỰC NGHIỆM: SỤP ĐỔ HOÀN TOÀN LỚP 3 (RECALL = 0.00%) TRÊN BA-SHAPES
+================================================================================
+Nguồn dữ liệu: Gói bàn giao của Nhóm 1 (t01_handover/bashapes/)
+Đối tượng kiểm chứng: 
+  - File nhãn thực tế: data.pt
+  - File checkpoint mô hình: gcn_ckpt.pt (tensor 'pred' do Nhóm 1 huấn luyện)
+  - Danh sách giải thích: val_nodes.json (100 node Nhóm 1 chỉ định)
+  - Báo cáo kết quả: summary.json
+
+--------------------------------------------------------------------------------
+1. BẰNG CHỨNG SỐ 1: BẢNG RECALL TỪNG LỚP TRÊN TẬP TEST (140 NODES)
+--------------------------------------------------------------------------------
+  * Lớp 0 (Đồ thị nền BA):   60/60 node đúng   -> Recall = 100.00%
+  * Lớp 1 (Chân nhà):        32/32 node đúng   -> Recall = 100.00%
+  * Lớp 2 (Thân nhà):        31/32 node đúng   -> Recall = 96.88% (1 node nhầm sang Lớp 1)
+  * LỚP 3 (MÁI NHÀ - ROOF):   0/16 node đúng   -> RECALL = 0.00% (ĐOÁN SAI 100%!)
+
+--------------------------------------------------------------------------------
+2. BẰNG CHỨNG SỐ 2: CHI TIẾT DỰ ĐOÁN TỪNG NODE LỚP 3 TRÊN TẬP TEST
+--------------------------------------------------------------------------------
+Dưới đây là 16 node thuộc Lớp 3 (đỉnh mái nhà motif house) trong tập test và kết quả dự đoán của mô hình Nhóm 1:
+
+  - Node 304: Nhãn thực tế = 3 | Mô hình đoán = 2  -> [SAI HOÀN TOÀN]
+  - Node 339: Nhãn thực tế = 3 | Mô hình đoán = 2  -> [SAI HOÀN TOÀN]
+  - Node 354: Nhãn thực tế = 3 | Mô hình đoán = 1  -> [SAI HOÀN TOÀN]
+  - Node 364: Nhãn thực tế = 3 | Mô hình đoán = 1  -> [SAI HOÀN TOÀN]
+  - Node 379: Nhãn thực tế = 3 | Mô hình đoán = 1  -> [SAI HOÀN TOÀN]
+  - Node 384: Nhãn thực tế = 3 | Mô hình đoán = 1  -> [SAI HOÀN TOÀN]
+  - Node 404: Nhãn thực tế = 3 | Mô hình đoán = 1  -> [SAI HOÀN TOÀN]
+  - Node 449: Nhãn thực tế = 3 | Mô hình đoán = 1  -> [SAI HOÀN TOÀN]
+  - Node 474: Nhãn thực tế = 3 | Mô hình đoán = 1  -> [SAI HOÀN TOÀN]
+  - Node 489: Nhãn thực tế = 3 | Mô hình đoán = 1  -> [SAI HOÀN TOÀN]
+  - Node 494: Nhãn thực tế = 3 | Mô hình đoán = 2  -> [SAI HOÀN TOÀN]
+  - Node 504: Nhãn thực tế = 3 | Mô hình đoán = 1  -> [SAI HOÀN TOÀN]
+  - Node 549: Nhãn thực tế = 3 | Mô hình đoán = 1  -> [SAI HOÀN TOÀN]
+  - Node 564: Nhãn thực tế = 3 | Mô hình đoán = 1  -> [SAI HOÀN TOÀN]
+  - Node 644: Nhãn thực tế = 3 | Mô hình đoán = 1  -> [SAI HOÀN TOÀN]
+  - Node 674: Nhãn thực tế = 3 | Mô hình đoán = 2  -> [SAI HOÀN TOÀN]
+
+  Tổng kết: 16/16 node mái nhà bị đoán nhầm thành Chân nhà (Lớp 1) và Thân nhà (Lớp 2).
+  Không có bất kỳ node nào được nhận diện là Lớp 3.
+
+--------------------------------------------------------------------------------
+3. BẰNG CHỨNG SỐ 3: TRONG 100 NODE GIẢI THÍCH (val_nodes.json) CỦA NHÓM 1
+--------------------------------------------------------------------------------
+Trong 100 node được Nhóm 1 chọn để chạy thuật toán giải thích XAI:
+Có 11 node thuộc Lớp 3 gồm: [374, 559, 529, 684, 459, 469, 519, 624, 399, 629, 614]
+Kết quả dự đoán của checkpoint:
+  - Node 374: Nhãn thực tế = 3 | Đoán = 2 (Sai)
+  - Node 559: Nhãn thực tế = 3 | Đoán = 1 (Sai)
+  - Node 529: Nhãn thực tế = 3 | Đoán = 1 (Sai)
+  - Node 684: Nhãn thực tế = 3 | Đoán = 2 (Sai)
+  - Node 459: Nhãn thực tế = 3 | Đoán = 1 (Sai)
+  - Node 469: Nhãn thực tế = 3 | Đoán = 1 (Sai)
+  - Node 519: Nhãn thực tế = 3 | Đoán = 1 (Sai)
+  - Node 624: Nhãn thực tế = 3 | Đoán = 1 (Sai)
+  - Node 399: Nhãn thực tế = 3 | Đoán = 1 (Sai)
+  - Node 629: Nhãn thực tế = 3 | Đoán = 1 (Sai)
+  - Node 614: Nhãn thực tế = 3 | Đoán = 1 (Sai)
+
+  ĐÚNG: 0/11 NODE (100% BỊ ĐOÁN SAI). 
+  Khi mô hình đoán sai, Explainer (GNNExplainer/PGExplainer) chỉ giải thích cho kết quả sai, làm mất hoàn toàn giá trị khoa học của XAI.
+
+--------------------------------------------------------------------------------
+4. BẰNG CHỨNG SỐ 4: CON SỐ TỰ THÚ TRONG summary.json CỦA NHÓM 1
+--------------------------------------------------------------------------------
+Mở file t01_handover/summary.json (dòng 15-16):
+  "test_acc": 0.8786,
+  "test_macro_f1": 0.6891
+
+Chênh lệch giữa Accuracy (87.86%) và Macro F1 (68.91%) lên đến 18.95%!
+Toán học đằng sau:
+  Macro F1 = (F1_lop0 + F1_lop1 + F1_lop2 + F1_lop3) / 4
+           = (1.0000 + 0.9412 + 0.8158 + 0.0000) / 4
+           = 0.6891
+Chính con số 0.6891 mà Nhóm 1 ghi trong file báo cáo là minh chứng toán học không thể chối cãi rằng F1 của Lớp 3 bằng 0.0000.
+================================================================================

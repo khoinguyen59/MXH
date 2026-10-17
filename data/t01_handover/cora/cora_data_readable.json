@@ -1,0 +1,13 @@
+{
+  "mo_ta": "Du lieu doc tu cora/data.pt (PyTorch Binary Tensor)",
+  "tong_so_nodes": 2708,
+  "so_chieu_dac_trung": 1433,
+  "so_canh_edge_entries": 10556,
+  "so_node_train_mask": 140,
+  "so_node_val_mask": 500,
+  "so_node_test_mask": 1000,
+  "tong_so_node_co_mask": 1640,
+  "ti_le_phu_thuc_te": "60.56%",
+  "so_node_bi_bo_sot_omitted": 1068,
+  "ti_le_bo_sot": "39.44%"
+}

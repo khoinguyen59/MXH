@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Chi Tiết Dữ Liệu data.pt và gcn_ckpt.pt (BA-Shapes)</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #1e1e1e; color: #d4d4d4; padding: 24px; }
+  h1, h2, h3 { color: #4ec9b0; border-bottom: 1px solid #333; padding-bottom: 6px; }
+  .card { background: #252526; border: 1px solid #3c3c3c; border-radius: 8px; padding: 18px; margin-bottom: 20px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+  th, td { border: 1px solid #3c3c3c; padding: 8px 12px; text-align: left; }
+  th { background: #2d2d2d; color: #9cdcfe; }
+  tr:nth-child(even) { background: #2a2a2a; }
+  .badge-danger { background: #d9534f; color: white; padding: 3px 8px; border-radius: 4px; font-weight: bold; }
+  .badge-success { background: #5cb85c; color: white; padding: 3px 8px; border-radius: 4px; font-weight: bold; }
+  code { background: #2d2d2d; color: #ce9178; padding: 2px 6px; border-radius: 3px; font-family: Consolas, monospace; }
+  .metric-box { display: inline-block; background: #2d2d2d; padding: 12px 18px; border-radius: 6px; margin: 6px; border-left: 4px solid #569cd6; }
+  .metric-val { font-size: 20px; font-weight: bold; color: #dcdcaa; }
+</style>
+</head>
+<body>
+
+<h1>BẢNG ĐIỀU KHIỂN XEM TRỰC QUAN FILE .PT TRÊN IDE</h1>
+<p>Dữ liệu được nạp trực tiếp từ <code>data.pt</code> và <code>gcn_ckpt.pt</code> (BA-Shapes).</p>
+
+<div class="card">
+  <h2>1. Các Tensor Bên Trong <code>data.pt</code></h2>
+  <div>
+    <div class="metric-box"><div>Tổng số node</div><div class="metric-val">700</div></div>
+    <div class="metric-box"><div>Số chiều đặc trưng (x)</div><div class="metric-val">10</div></div>
+    <div class="metric-box"><div>Số cạnh (edge_index)</div><div class="metric-val">3972</div></div>
+    <div class="metric-box"><div>Số node Train / Val / Test</div><div class="metric-val">420 / 140 / 140</div></div>
+  </div>
+
+  <h3>Chi tiết Tensor:</h3>
+  <table>
+    <tr><th>Tên Tensor</th><th>Kích thước (Shape)</th><th>Kiểu dữ liệu (Dtype)</th><th>Mô tả</th></tr>
+    <tr><td><code>x</code></td><td>[700, 10]</td><td>torch.float32</td><td>Ma trận đặc trưng bậc và căn bậc 2 của bậc</td></tr>
+    <tr><td><code>edge_index</code></td><td>[2, 3972]</td><td>torch.int64</td><td>Danh sách cạnh đồ thị vô hướng</td></tr>
+    <tr><td><code>y</code></td><td>[700]</td><td>torch.int64</td><td>Nhãn thực tế của 700 node (4 lớp)</td></tr>
+    <tr><td><code>train_mask</code></td><td>[700]</td><td>torch.bool</td><td>Mặt nạ tập huấn luyện (420 node)</td></tr>
+    <tr><td><code>val_mask</code></td><td>[700]</td><td>torch.bool</td><td>Mặt nạ tập kiểm định (140 node)</td></tr>
+    <tr><td><code>test_mask</code></td><td>[700]</td><td>torch.bool</td><td>Mặt nạ tập kiểm thử (140 node)</td></tr>
+    <tr><td><code>gt_edge_mask</code></td><td>[3972]</td><td>torch.bool</td><td>Mặt nạ cạnh Ground Truth cho motif</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>2. Đánh Giá Độ Chính Xác Từng Lớp Trên Tập Test (Từ Checkpoint <code>gcn_ckpt.pt</code>)</h2>
+  <table>
+    <tr><th>Lớp</th><th>Tên Motif</th><th>Số node Test</th><th>Số node đoán đúng</th><th>Độ chính xác (Recall)</th><th>Tình trạng</th></tr>
+    <tr><td>Lớp 0</td><td>Đồ thị nền BA (Base)</td><td>60</td><td>60</td><td>100.00%</td><td><span class="badge-success">TỐT</span></td></tr>
+    <tr><td>Lớp 1</td><td>Chân nhà (House base)</td><td>32</td><td>32</td><td>100.00%</td><td><span class="badge-success">TỐT</span></td></tr>
+    <tr><td>Lớp 2</td><td>Thân nhà (House middle)</td><td>32</td><td>31</td><td>96.88%</td><td><span class="badge-success">TỐT</span></td></tr>
+    <tr><td>Lớp 3</td><td>Mái nhà (House roof)</td><td>16</td><td>0</td><td>0.00%</td><td><span class="badge-danger">TÊ LIỆT HOÀN TOÀN</span></td></tr>
+  </table>
+</div>
+
+</body>
+</html>

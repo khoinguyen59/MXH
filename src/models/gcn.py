@@ -50,15 +50,30 @@ class GCN(BaseGNN):
             self.convs.append(GCNConv(hidden_channels, out_channels))
 
     def forward(
-        self, x: torch.Tensor, edge_index: torch.Tensor, edge_weight: torch.Tensor = None
+        self,
+        x: torch.Tensor,
+        edge_index: torch.Tensor,
+        edge_weight: torch.Tensor = None,
+        return_type: str = "log_probs",
     ) -> torch.Tensor:
-        """Forward pass computing log-softmax class probabilities."""
+        """Forward pass computing class predictions.
+
+        Args:
+            x: Node feature matrix.
+            edge_index: Graph connectivity tensor.
+            edge_weight: Optional continuous edge weights for XAI explainers.
+            return_type: Output distribution type matching PyG ModelConfig ('log_probs', 'probs', or 'raw').
+        """
         for i in range(self.num_layers - 1):
             x = self.convs[i](x, edge_index, edge_weight)
             x = F.relu(x)
             x = F.dropout(x, p=self.dropout, training=self.training)
 
         x = self.convs[-1](x, edge_index, edge_weight)
+        if return_type == "raw":
+            return x
+        elif return_type == "probs":
+            return F.softmax(x, dim=-1)
         return F.log_softmax(x, dim=-1)
 
     def get_node_embeddings(

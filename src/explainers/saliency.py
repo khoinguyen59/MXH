@@ -57,34 +57,57 @@ class SaliencyExplainer(BaseExplainer):
 
         num_edges = sub_edge_index.size(1)
         if num_edges == 0:
+            sub_x_grad = sub_x.clone().detach().requires_grad_(True)
+            empty_edge = torch.empty((2, 0), dtype=torch.long, device=x.device)
+            node_feat_mask = None
+            try:
+                out_iso = self.model(sub_x_grad, empty_edge)
+                target_logit = out_iso[target_local_idx, pred_class]
+                target_logit.backward()
+                if sub_x_grad.grad is not None:
+                    feat_grad = sub_x_grad.grad[target_local_idx].abs().detach()
+                    max_feat = feat_grad.max()
+                    if max_feat > 1e-8:
+                        feat_grad = feat_grad / max_feat
+                    node_feat_mask = feat_grad
+            except Exception:
+                node_feat_mask = None
+
             return ExplanationResult(
                 target_node=node_idx,
                 predicted_class=pred_class,
                 edge_mask=torch.empty(0),
-                node_feat_mask=None,
+                node_feat_mask=node_feat_mask,
                 subgraph_nodes=subset,
                 subgraph_edge_index=sub_edge_index,
                 execution_time=time.time() - start_time,
             )
 
-        # 3. Create continuous edge mask with gradients enabled
+        # 3. Create continuous edge mask and enable gradients on node features
         edge_mask = torch.ones(num_edges, requires_grad=True, device=x.device)
+        sub_x_grad = sub_x.clone().detach().requires_grad_(True)
 
         # 4. Forward pass weighting adjacency message passing
-        # If the GNN architecture accepts edge_weight, pass it directly; otherwise use hook
-        out_masked = self.model(sub_x, sub_edge_index, edge_weight=edge_mask)
+        try:
+            out_masked = self.model(sub_x_grad, sub_edge_index, edge_weight=edge_mask)
+        except TypeError:
+            try:
+                out_masked = self.model(sub_x_grad, sub_edge_index, edge_weight)
+            except Exception:
+                out_masked = self.model(sub_x_grad, sub_edge_index)
         target_logit = out_masked[target_local_idx, pred_class]
 
         # 5. Backward pass to extract gradient saliency
         self.model.zero_grad()
         if edge_mask.grad is not None:
             edge_mask.grad.zero_()
+        if sub_x_grad.grad is not None:
+            sub_x_grad.grad.zero_()
 
         target_logit.backward()
 
         grad = edge_mask.grad
         if grad is None:
-            # Fallback if model forward does not use edge_weight directly
             grad = torch.zeros(num_edges, device=x.device)
 
         # Saliency magnitude: absolute value of gradient
@@ -95,13 +118,22 @@ class SaliencyExplainer(BaseExplainer):
         if max_val > 1e-8:
             saliency_scores = saliency_scores / max_val
 
+        # Node Feature Saliency magnitude (First-order gradient w.r.t target node features)
+        node_feat_mask = None
+        if sub_x_grad.grad is not None:
+            feat_grad = sub_x_grad.grad[target_local_idx].abs().detach()
+            max_feat = feat_grad.max()
+            if max_feat > 1e-8:
+                feat_grad = feat_grad / max_feat
+            node_feat_mask = feat_grad
+
         execution_time = time.time() - start_time
 
         return ExplanationResult(
             target_node=node_idx,
             predicted_class=pred_class,
             edge_mask=saliency_scores,
-            node_feat_mask=None,
+            node_feat_mask=node_feat_mask,
             subgraph_nodes=subset,
             subgraph_edge_index=sub_edge_index,
             execution_time=execution_time,

@@ -5,6 +5,7 @@ which trains an inductive neural network to predict edge inclusion probabilities
 """
 
 import time
+from typing import Optional
 import torch
 from torch_geometric.explain import Explainer, PGExplainer as PyGPGExplainer
 
@@ -37,7 +38,7 @@ class PGExplainerWrapper(BaseExplainer):
         self.explainer = Explainer(
             model=model,
             algorithm=self.pg_algorithm,
-            explanation_type="model",
+            explanation_type="phenomenon",
             edge_mask_type="object",
             model_config=dict(
                 mode="multiclass_classification",
@@ -47,7 +48,11 @@ class PGExplainerWrapper(BaseExplainer):
         )
 
     def train_explainer(
-        self, x: torch.Tensor, edge_index: torch.Tensor, target_indices: torch.Tensor
+        self,
+        x: torch.Tensor,
+        edge_index: torch.Tensor,
+        target_indices: torch.Tensor,
+        target: Optional[torch.Tensor] = None,
     ) -> None:
         """Train the parameterized neural network over a set of training node indices.
 
@@ -55,14 +60,31 @@ class PGExplainerWrapper(BaseExplainer):
             x: Node features.
             edge_index: Graph connectivity.
             target_indices: Node indices used to train the parameterized explainer.
+            target: Target labels. If None, uses model predictions.
         """
+        if target is None:
+            with torch.no_grad():
+                target = self.model(x, edge_index).argmax(dim=-1)
+
+        self.model.eval()
         for epoch in range(self.epochs):
             for idx in target_indices:
-                _ = self.explainer(x=x, edge_index=edge_index, target=None, index=int(idx))
+                _ = self.pg_algorithm.train(
+                    epoch=epoch,
+                    model=self.model,
+                    x=x,
+                    edge_index=edge_index,
+                    target=target,
+                    index=int(idx),
+                )
         self.is_trained = True
 
     def explain_node(
-        self, node_idx: int, x: torch.Tensor, edge_index: torch.Tensor
+        self,
+        node_idx: int,
+        x: torch.Tensor,
+        edge_index: torch.Tensor,
+        target: Optional[torch.Tensor] = None,
     ) -> ExplanationResult:
         """Generate PGExplainer edge importance mask for target node."""
         start_time = time.perf_counter()
@@ -71,17 +93,38 @@ class PGExplainerWrapper(BaseExplainer):
             logits = self.model(x, edge_index)
             pred_class = int(logits[node_idx].argmax(dim=-1).item())
 
+        subset_nodes, sub_edge_index, mapping, edge_mask_bool = (
+            self.get_k_hop_computation_graph(node_idx, edge_index, x.size(0))
+        )
+
+        if sub_edge_index.size(1) == 0:
+            elapsed = time.perf_counter() - start_time
+            return ExplanationResult(
+                target_node=node_idx,
+                predicted_class=pred_class,
+                edge_mask=torch.empty(0, dtype=torch.float32, device=x.device),
+                node_feat_mask=None,
+                subgraph_nodes=subset_nodes,
+                subgraph_edge_index=sub_edge_index,
+                execution_time=elapsed,
+            )
+
+        if target is None:
+            target = logits.argmax(dim=-1)
+
+        if not self.is_trained:
+            # Auto-train on target node context if not pre-trained
+            train_targets = torch.tensor([node_idx], device=x.device)
+            self.train_explainer(x, edge_index, target_indices=train_targets, target=target)
+
         explanation = self.explainer(
             x=x,
             edge_index=edge_index,
+            target=target,
             index=node_idx,
         )
 
         elapsed = time.perf_counter() - start_time
-
-        subset_nodes, sub_edge_index, mapping, edge_mask_bool = (
-            self.get_k_hop_computation_graph(node_idx, edge_index, x.size(0))
-        )
 
         edge_mask = explanation.edge_mask[edge_mask_bool]
 

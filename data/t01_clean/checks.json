@@ -1,0 +1,26 @@
+{
+  "bashapes": {
+    "is_pyg_data": true,
+    "masks_disjoint": true,
+    "class3_recall_passed": true,
+    "mean_class3_recall": 1.0,
+    "std_class3_recall": 0.0,
+    "mean_test_acc": 0.9885714285714287,
+    "std_test_acc": 0.011605769149479955,
+    "val_nodes_valid": true
+  },
+  "cora_planetoid": {
+    "is_pyg_data": true,
+    "split_counts": "140/500/1000",
+    "unlabeled_nodes_transparent": true,
+    "mean_test_acc": 0.7932000000000001,
+    "std_test_acc": 0.004166533331199936
+  },
+  "cora_full_dense": {
+    "is_pyg_data": true,
+    "coverage_complete": true,
+    "mean_test_acc": 0.8643734643734643,
+    "std_test_acc": 0.015570495840545309
+  },
+  "explainer_edge_weight_supported": true
+}

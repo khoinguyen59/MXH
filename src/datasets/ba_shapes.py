@@ -23,6 +23,11 @@ class BAShapesLoader(BaseDatasetLoader):
         num_base_nodes: int = 300,
         num_motifs: int = 80,
         random_seed: int = 42,
+        train_ratio: float = 0.60,
+        val_ratio: float = 0.20,
+        test_ratio: float = 0.20,
+        use_rwpe: bool = False,
+        rwpe_steps: int = 4,
     ) -> None:
         """Initialize the BA-Shapes generator.
 
@@ -31,10 +36,20 @@ class BAShapesLoader(BaseDatasetLoader):
             num_base_nodes: Number of nodes in the Barabási-Albert base graph (default: 300).
             num_motifs: Number of 5-node house motifs attached to base nodes (default: 80).
             random_seed: Seed for deterministic generation.
+            train_ratio: Proportion of nodes for training (default: 0.60).
+            val_ratio: Proportion of nodes for validation (default: 0.20).
+            test_ratio: Proportion of nodes for testing (default: 0.20).
+            use_rwpe: Whether to append Random Walk Positional Encoding (RWPE) to break topological symmetry.
+            rwpe_steps: Number of random walk return steps (default: 4).
         """
         super().__init__(data_dir=data_dir, random_seed=random_seed)
         self.num_base_nodes = num_base_nodes
         self.num_motifs = num_motifs
+        self.train_ratio = train_ratio
+        self.val_ratio = val_ratio
+        self.test_ratio = test_ratio
+        self.use_rwpe = use_rwpe
+        self.rwpe_steps = rwpe_steps
 
     def _build_house_motif(self) -> List[Tuple[int, int]]:
         """Construct the 5-node house motif edge list (3-node triangle roof + 4-node square base).
@@ -77,12 +92,12 @@ class BAShapesLoader(BaseDatasetLoader):
             # Local motif node IDs
             motif_node_ids = [current_node_id + i for i in range(5)]
 
-            # Label nodes: 1 for base of house, 2 for roof
+            # Label nodes: 1 for bottom base, 2 for middle walls, 3 for top roof
             labels[motif_node_ids[0]] = 1
             labels[motif_node_ids[1]] = 1
-            labels[motif_node_ids[2]] = 1
-            labels[motif_node_ids[3]] = 1
-            labels[motif_node_ids[4]] = 2
+            labels[motif_node_ids[2]] = 2
+            labels[motif_node_ids[3]] = 2
+            labels[motif_node_ids[4]] = 3
 
             # Connect attach_node to motif_node_ids[0]
             all_edges.append((attach_node, motif_node_ids[0]))
@@ -101,18 +116,27 @@ class BAShapesLoader(BaseDatasetLoader):
 
             current_node_id += 5
 
-        # Feature matrix: One-hot degree distribution + synthetic perturbation
-        degrees = [0] * total_nodes
-        for u, _ in all_edges:
-            degrees[u] += 1
-        features = np.column_stack([
-            np.log1p(degrees),
-            rng.normal(loc=0.0, scale=0.1, size=(total_nodes, 9)),
-        ])
+        # Feature matrix: All-ones constant vector of dimension 10 (Canonical Benchmark Standard)
+        # Feature matrix: All-ones constant vector of dimension 10 (Canonical Benchmark Standard)
+        features = np.ones((total_nodes, 10), dtype=np.float32)
 
         # Convert to PyG tensors
         edge_index = torch.tensor(all_edges, dtype=torch.long).t().contiguous()
         x = torch.tensor(features, dtype=torch.float32)
+
+        if self.use_rwpe:
+            from torch_geometric.utils import to_dense_adj
+            adj = to_dense_adj(edge_index, max_num_nodes=total_nodes)[0]
+            deg = adj.sum(dim=-1).clamp(min=1)
+            p_matrix = torch.matmul(torch.diag(1.0 / deg), adj)
+            rwpe_list = []
+            current_p = p_matrix
+            for _ in range(self.rwpe_steps):
+                rwpe_list.append(current_p.diag())
+                current_p = torch.matmul(current_p, p_matrix)
+            rwpe_tensor = torch.stack(rwpe_list, dim=-1)
+            x = torch.cat([x, rwpe_tensor], dim=-1)
+
         y = torch.tensor(labels, dtype=torch.long)
         ground_truth_mask = torch.tensor(is_motif_edge, dtype=torch.bool)
 
@@ -125,7 +149,12 @@ class BAShapesLoader(BaseDatasetLoader):
         )
 
         # Apply strict Anti-Leakage Split
-        splitter = AntiLeakageSplitter(random_seed=self.random_seed)
+        splitter = AntiLeakageSplitter(
+            train_ratio=self.train_ratio,
+            val_ratio=self.val_ratio,
+            test_ratio=self.test_ratio,
+            random_seed=self.random_seed,
+        )
         train_mask, val_mask, test_mask = splitter.split_nodes(data, stratify=True)
         data = splitter.fit_transform_features(data, train_mask)
 
@@ -135,3 +164,37 @@ class BAShapesLoader(BaseDatasetLoader):
 
         self.data = data
         return data
+
+    def get_clean_val_nodes(self, data: Data, count: int = 100) -> List[int]:
+        """Extract a clean, balanced list of validation nodes strictly inside val_mask.
+
+        Args:
+            data: PyG Data object containing val_mask and y labels.
+            count: Number of validation nodes to select (default: 100).
+
+        Returns:
+            Sorted list of node indices strictly within val_mask.
+        """
+        val_indices = torch.where(data.val_mask)[0].tolist()
+        val_labels = data.y[val_indices].tolist()
+
+        by_class: dict = {c: [] for c in range(4)}
+        for idx, lbl in zip(val_indices, val_labels):
+            by_class[lbl].append(idx)
+
+        selected = []
+        # Class 3 (roof) has fewer nodes, so prioritize taking all available motif validation nodes
+        for c in [3, 1, 2, 0]:
+            target_per_class = count // 4
+            take = min(len(by_class[c]), target_per_class if c != 3 else len(by_class[3]))
+            selected.extend(by_class[c][:take])
+
+        # Fill remaining slots up to count from available val_indices
+        selected_set = set(selected)
+        remaining = [idx for idx in val_indices if idx not in selected_set]
+        needed = count - len(selected)
+        if needed > 0:
+            selected.extend(remaining[:needed])
+
+        return sorted(selected[:count])
+

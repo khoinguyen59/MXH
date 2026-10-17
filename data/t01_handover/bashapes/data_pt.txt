@@ -1,0 +1,53 @@
+======================================================================
+CHI TIET NOI DUNG TENSOR data.pt (BA-SHAPES) MO TRUC TIEP TREN IDE
+======================================================================
+
+1. TONG QUAN GRAPH:
+   - So nodes: 700
+   - So canh (edges): 3972
+   - So chieu feature x: 10
+   - So lop nhan y: 4 lop (0, 1, 2, 3)
+   - Train nodes: 420
+   - Val nodes: 140
+   - Test nodes: 140
+
+2. DANH SACH PHAN BO NHAN Y TREN 700 NODES:
+   - Lop 0: 300 nodes
+   - Lop 1: 160 nodes
+   - Lop 2: 160 nodes
+   - Lop 3: 80 nodes
+
+3. PHAN BO NHAN TREN TAP TEST (140 NODES):
+   - Lop 0: 60 nodes
+   - Lop 1: 32 nodes
+   - Lop 2: 32 nodes
+   - Lop 3: 16 nodes
+
+4. MA TRAN CANH edge_index (20 canh dau tien):
+   Edge  0: 0 -> 1
+   Edge  1: 0 -> 4
+   Edge  2: 0 -> 5
+   Edge  3: 0 -> 9
+   Edge  4: 0 -> 14
+   Edge  5: 0 -> 22
+   Edge  6: 0 -> 25
+   Edge  7: 0 -> 28
+   Edge  8: 0 -> 36
+   Edge  9: 0 -> 65
+   Edge 10: 0 -> 67
+   Edge 11: 0 -> 106
+   Edge 12: 0 -> 117
+   Edge 13: 0 -> 129
+   Edge 14: 0 -> 137
+   Edge 15: 0 -> 142
+   Edge 16: 0 -> 143
+   Edge 17: 0 -> 147
+   Edge 18: 0 -> 149
+   Edge 19: 0 -> 160
+   ...
+
+5. VECTOR DAC TRUNG x CUA CAC LOP MOTIF (NODE DAU TIEN CUA MOI LOP):
+   - Node 0 (Lop 0): [28.0, 5.2915, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+   - Node 300 (Lop 1): [3.0, 1.7321, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+   - Node 302 (Lop 2): [2.0, 1.4142, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+   - Node 304 (Lop 3): [2.0, 1.4142, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]

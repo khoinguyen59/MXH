@@ -1,0 +1,38 @@
+{
+  "bashapes": {
+    "stats": {
+      "name": "bashapes",
+      "nodes": 700,
+      "edge_entries": 3972,
+      "self_loops_removed": 0,
+      "features": 10,
+      "classes": 4,
+      "undirected": true,
+      "train": 420,
+      "val": 140,
+      "test": 140
+    },
+    "test_acc": 0.8786,
+    "test_macro_f1": 0.6891,
+    "val_acc": 0.8571,
+    "n_val_nodes": 100
+  },
+  "cora": {
+    "stats": {
+      "name": "cora",
+      "nodes": 2708,
+      "edge_entries": 10556,
+      "self_loops_removed": 0,
+      "features": 1433,
+      "classes": 7,
+      "undirected": true,
+      "train": 140,
+      "val": 500,
+      "test": 1000
+    },
+    "test_acc": 0.836,
+    "test_macro_f1": 0.8246,
+    "val_acc": 0.816,
+    "n_val_nodes": 100
+  }
+}
