@@ -10,8 +10,7 @@
 > **Trường:** Trường Đại học Công nghệ Thông tin (UIT), ĐHQG-HCM (2026)  
 > **Giảng viên hướng dẫn:** TS. Trần Hùng Nghiệp (`nghiepth@uit.edu.vn`)  
 > **Phân loại đề tài:** Mức độ C (Nghiên cứu chuyên sâu, Độ khó: 4/5)  
-> **Nhóm thực hiện:** Nhóm 10 & Liên minh Nhóm 2 (Thiện + Khôi phụ trách Task T05 Explainers)  
-> **Sinh viên:** Nguyễn Trọng Khôi (MSSV: 22520691) - Trưởng nhóm  
+> **Thành viên thực hiện:** Nguyễn Trọng Khôi, Nguyễn Hải Thiện  
 
 ---
 
